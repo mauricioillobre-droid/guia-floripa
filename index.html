@@ -1,0 +1,2076 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Floripa por Mauri</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-blue: #0D2B36;
+    --mid-blue: #1F5C73;
+    --soft-green: #6E8B74;
+    --sand: #E6D3A3;
+    --bg-light: #F7F5F2;
+    --text-main: #1E1E1E;
+    --text-muted: #6B7280;
+    --white: #ffffff;
+    --accent-sand: #E6D3A3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-main);
+    overflow-x: hidden;
+  }
+
+  /* LANGUAGE SWITCHER */
+  .lang-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(13, 43, 54, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  .lang-btn {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.55);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+  }
+
+  .lang-btn.active {
+    background: var(--mid-blue);
+    border-color: var(--mid-blue);
+    color: white;
+  }
+
+  .lang-btn:hover:not(.active) {
+    border-color: rgba(255,255,255,0.6);
+    color: white;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background:
+  linear-gradient(rgba(13,43,54,0.70), rgba(13,43,54,0.85)),
+  url('images/hero2.JPEG') center/cover no-repeat,
+  linear-gradient(160deg, var(--deep-blue) 0%, var(--mid-blue) 60%, #1d6b7a 100%);;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 100px;
+    background: var(--bg-light);
+    clip-path: ellipse(60% 100% at 50% 100%);
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: rgba(230,211,163,0.15);
+    border: 1px solid rgba(230,211,163,0.3);
+    color: var(--sand);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 10vw, 96px);
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    margin-bottom: 10px;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+  }
+
+  .hero h1 span {
+    color: var(--sand);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: clamp(13px, 2.5vw, 16px);
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease 0.35s forwards;
+    opacity: 0;
+  }
+
+  .hero-desc {
+    max-width: 500px;
+    color: rgba(255,255,255,0.75);
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+    opacity: 0;
+  }
+
+  /* HERO MICRO-CONVERSION */
+  .hero-micro {
+    font-size: 14px;
+    color: rgba(230,211,163,0.8);
+    margin-bottom: 36px;
+    font-style: italic;
+    animation: fadeUp 0.8s ease 0.58s forwards;
+    opacity: 0;
+  }
+
+  /* HERO CTA GROUP */
+  .hero-ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    animation: fadeUp 0.8s ease 0.65s forwards;
+    opacity: 0;
+  }
+
+  .ig-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--mid-blue);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: 0.3px;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    border: 1.5px solid rgba(255,255,255,0.15);
+  }
+
+  .ig-btn:hover {
+    transform: translateY(-2px);
+    background: #e6d3a3;
+    box-shadow: 0 12px 30px rgba(31,92,115,0.5);
+  }
+
+  .hero-cta-secondary {
+    font-size: 15px;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.3px;
+  }
+
+  ..hero-cta-secondary a {
+  color: #e6d3a3;;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(230,211,163,0.45);
+  transition: color 0.2s;
+}
+  }
+
+  .hero-cta-secondary a:hover { color: #e6d3a3;; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    padding: 24px 24px;
+    background: white;
+    position: sticky;
+    top: 44px;
+    z-index: 90;
+    box-shadow: 0 1px 16px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--deep-blue);;;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1.5px solid transparent;
+    transition: all 0.25s;
+  }
+
+  nav a:hover {
+    border-color: var(--mid-blue);
+    color: var(--mid-blue);
+    background: rgba(31,92,115,0.04);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 52px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--mid-blue);
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--deep-blue);
+    line-height: 1.1;
+  }
+
+  .section-header h2 em {
+    color: var(--soft-green);
+    font-style: italic;
+  }
+
+  .section-intro {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.75;
+    max-width: 560px;
+    margin-top: 14px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: var(--mid-blue);
+    margin: 18px 0;
+    border-radius: 2px;
+    opacity: 0.4;
+  }
+
+  /* ---- QUICK GUIDE SECTION (NEW) ---- */
+  .quick-guide {
+    background: var(--deep-blue);
+    padding: 72px 24px;
+  }
+
+  .quick-guide-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .quick-guide .section-tag { color: var(--sand); opacity: 0.7; }
+  .quick-guide h2 { color: white; }
+  .quick-guide h2 em { color: var(--sand); }
+  .quick-guide .section-intro { color: rgba(255,255,255,0.5); }
+  .quick-guide .divider { background: var(--sand); }
+
+  .trip-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    margin-top: 32px;
+  }
+
+  .trip-tab {
+    background: rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.6);
+    padding: 9px 20px;
+    border-radius: 24px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.25s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .trip-tab.active,
+  .trip-tab:hover {
+    background: var(--mid-blue);
+    border-color: var(--mid-blue);
+    color: white;
+  }
+
+  .trip-panels > div {
+    display: none;
+  }
+
+  .trip-panels > div.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+
+  .trip-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 14px;
+    padding: 22px 24px;
+    transition: background 0.25s;
+  }
+
+  .trip-item:hover { background: rgba(255,255,255,0.1); }
+
+  .trip-item-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--sand);
+    opacity: 0.7;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+  }
+
+  .trip-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .trip-item p {
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ---- MID-PAGE CTA STRIP ---- */
+  .mid-cta-strip {
+    background: var(--bg-light);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .mid-cta-strip-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .mid-cta-strip p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  .mid-cta-strip strong { color: var(--deep-blue); }
+
+  .cta-btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--deep-blue);
+    color: white;
+    padding: 13px 26px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+  }
+
+  .cta-btn-solid:hover {
+    background: var(--mid-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(31,92,115,0.3);
+  }
+
+  .cta-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: transparent;
+    color: var(--deep-blue);
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1.5px solid var(--deep-blue);
+    transition: all 0.25s;
+  }
+
+  .cta-btn-outline:hover {
+    background: var(--deep-blue);
+    color: white;
+  }
+
+  /* BEACH CARDS */
+  .beach-group {
+    margin-bottom: 52px;
+  }
+
+  .beach-group-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--deep-blue);
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(13,43,54,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgba(13,43,54,0.12);
+  }
+
+  /* TOP PICK highlight */
+  .card.top-pick {
+    border: 1.5px solid var(--mid-blue);
+    position: relative;
+  }
+
+  .top-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--deep-blue);
+    color: var(--sand);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 10px;
+    z-index: 2;
+  }
+
+  .card-img {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, #d6e8ed, #b0cfd9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-img .photo-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #dce8ec, #c0d8e2);
+    color: var(--mid-blue);
+    font-size: 13px;
+    font-weight: 500;
+    gap: 8px;
+    opacity: 0.65;
+  }
+
+  .card-body {
+    padding: 20px 22px 24px;
+  }
+
+  .card-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--deep-blue);
+    margin-bottom: 6px;
+  }
+
+  .card-body p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+
+  .card-tip {
+    font-size: 12.5px;
+    color: var(--soft-green);
+    font-weight: 500;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--mid-blue);
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid rgba(31,92,115,0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.25s;
+  }
+
+  .map-link:hover {
+    background: var(--mid-blue);
+    color: white;
+    border-color: var(--mid-blue);
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .badge-wave { background: rgba(31,92,115,0.1); color: var(--mid-blue); }
+  .badge-calm { background: rgba(110,139,116,0.1); color: var(--soft-green); }
+  .badge-sunrise { background: rgba(230,211,163,0.3); color: #8a6e1a; }
+  .badge-sunset { background: rgba(110,139,116,0.12); color: #4e7155; }
+  .badge-trail { background: rgba(110,139,116,0.12); color: var(--soft-green); }
+  .badge-rain { background: rgba(31,92,115,0.1); color: var(--mid-blue); }
+  .badge-food { background: rgba(13,43,54,0.06); color: var(--deep-blue); }
+
+  /* SUNSETS SECTION */
+  .sun-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .sun-card {
+    background: white;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .sun-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(13,43,54,0.1);
+  }
+
+  .sun-icon {
+    font-size: 32px;
+    margin-bottom: 14px;
+  }
+.sun-img {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.sun-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.resto-img img,
+.sun-img img {
+  transition: transform 0.3s ease;
+}
+
+.resto-card:hover img,
+.sun-card:hover img {
+  transform: scale(1.05);
+}
+  .sun-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    margin-bottom: 6px;
+    color: var(--deep-blue);
+  }
+
+  .sun-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .sun-tip {
+    font-size: 12.5px;
+    color: var(--soft-green);
+    font-weight: 500;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  /* RESTAURANT */
+  .resto-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+  }
+
+  .resto-card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px 24px 24px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: transform 0.3s;
+    border-left: 3px solid var(--mid-blue);
+  }
+
+  .resto-card:hover { transform: translateY(-3px); }
+
+  .resto-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: var(--deep-blue);
+    margin-bottom: 4px;
+  }
+
+  .resto-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+.resto-img {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+
+.resto-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+  .resto-tip {
+    font-size: 12.5px;
+    color: var(--soft-green);
+    font-weight: 500;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  /* RAIN */
+  .rain-section {
+    background: var(--deep-blue);
+    border-radius: 20px;
+    padding: 50px 20px;
+    margin: 0 auto;
+    max-width: 1100px;
+  }
+
+  .rain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .rain-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 24px;
+    transition: background 0.3s;
+  }
+
+  .rain-card:hover { background: rgba(255,255,255,0.09); }
+
+  .rain-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .rain-card p {
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .rain-section .section-header h2 { color: white; }
+  .rain-section .section-tag { color: var(--sand); opacity: 0.7; }
+  .rain-section .section-intro { color: rgba(255,255,255,0.45); }
+  .rain-section .divider { background: var(--sand); opacity: 0.3; }
+
+  /* TRILHAS */
+  .trail-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 18px;
+  }
+
+  .trail-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+    border-top: 3px solid var(--soft-green);
+    transition: transform 0.3s;
+  }
+
+  .trail-card:hover { transform: translateY(-3px); }
+
+  .trail-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: var(--deep-blue);
+    margin-bottom: 8px;
+  }
+
+  .trail-card p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+
+  .difficulty {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--soft-green);
+    margin-bottom: 10px;
+  }
+
+  /* INSTAGRAM CTA */
+  .cta-section {
+    background: var(--deep-blue);
+    padding: 90px 24px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 56px);
+    color: white;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .cta-section h2 em { color: var(--sand); font-style: italic; }
+
+  .cta-section p {
+    color: rgba(255,255,255,0.5);
+    font-size: 17px;
+    margin-bottom: 36px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .cta-ig {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--mid-blue);
+    color: white;
+    padding: 17px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    border: 1.5px solid rgba(255,255,255,0.1);
+  }
+
+  .cta-ig:hover {
+    transform: scale(1.04);
+    background: #265e77;
+    box-shadow: 0 16px 40px rgba(31,92,115,0.5);
+  }
+
+  .cta-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    padding: 13px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    transition: all 0.25s;
+  }
+
+  .cta-wa:hover {
+    background: rgba(255,255,255,0.07);
+    color: white;
+    border-color: rgba(255,255,255,0.3);
+  }
+
+  /* FOOTER */
+  footer {
+    background: #08181f;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  footer a { color: var(--sand); text-decoration: none; opacity: 0.7; }
+  footer a:hover { opacity: 1; }
+
+  /* PHOTO NOTE */
+  .photo-note {
+    background: rgba(230,211,163,0.15);
+    border: 1px dashed rgba(230,211,163,0.5);
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-size: 13px;
+    color: #7a6e45;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  /* ---- WHATSAPP FLOATING BUTTON ---- */
+  .wa-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 200;
+    background: #25D366;
+    color: white;
+    border-radius: 50px;
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    transition: transform 0.25s, box-shadow 0.25s;
+    animation: floatIn 0.6s ease 1.5s both;
+  }
+
+  .wa-float:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 32px rgba(37,211,102,0.55);
+  }
+
+  .wa-float-label {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    .wa-float-label { display: inline; }
+    .wa-float { bottom: 20px; right: 16px; }
+  }
+
+  @keyframes floatIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    nav { top: 40px; gap: 5px; padding: 14px; }
+    nav a { font-size: 10px; padding: 6px 10px; }
+    .rain-section { padding: 36px 20px; border-radius: 0; }
+    section { padding: 56px 16px; }
+    .hero-ctas { width: 100%; }
+    .ig-btn, .cta-btn-solid, .cta-btn-outline { width: 100%; justify-content: center; }
+    .trip-panels > div.active { grid-template-columns: 1fr; }
+  }
+
+  /* HIDDEN LANG */
+  [data-lang="pt"] { display: none; }
+  body.pt [data-lang="es"] { display: none; }
+  body.pt [data-lang="pt"] { display: block; }
+  body.pt .lang-btn[data-set="es"] { background: transparent; color: rgba(255,255,255,0.55); border-color: rgba(255,255,255,0.25); }
+  body.pt .lang-btn[data-set="pt"] { background: var(--mid-blue); border-color: var(--mid-blue); color: white; }
+  body:not(.pt) .lang-btn[data-set="es"] { background: var(--mid-blue); border-color: var(--mid-blue); color: white; }
+
+  span[data-lang="pt"] { display: none; }
+  body.pt span[data-lang="es"] { display: none; }
+  body.pt span[data-lang="pt"] { display: inline; }
+</style>
+</head>
+<body>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="wa-float"
+   href="https://wa.me/5548984211589?text=Hola%20Mauri!%20Estoy%20viendo%20tu%20guía%20de%20Floripa%20y%20quería%20consultarte%20algo%20%F0%9F%8F%9D"
+   target="_blank" aria-label="Contactar por WhatsApp">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-float-label">
+    <span data-lang="es">Escribime</span>
+    <span data-lang="pt">Me escreva</span>
+  </span>
+</a>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <span style="color:rgba(255,255,255,0.35); font-size:11px; letter-spacing:1px; text-transform:uppercase; margin-right:4px">
+    <span data-lang="es">Idioma</span><span data-lang="pt">Idioma</span>
+  </span>
+  <button class="lang-btn active" data-set="es" onclick="setLang('es')">ES</button>
+  <button class="lang-btn" data-set="pt" onclick="setLang('pt')">PT</button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">
+    <span data-lang="es">✦ Guía de viaje personal</span>
+    <span data-lang="pt">✦ Guia de viagem pessoal</span>
+  </div>
+  <h1>Floripa <span>por Mauri</span></h1>
+  <p class="hero-sub">Florianópolis, Santa Catarina</p>
+  <p class="hero-desc">
+    <span data-lang="es">Hola, soy Mauri. Vivo en Floripa y todos los días ayudo a viajeros a decidir qué hacer en la isla. Esta guía reune mis lugares favoritos y planes simples para aprovechar mejor tu viaje.</span>
+    <span data-lang="pt">Sou o Mauri. Moro em Floripa e todos os dias ajudo viajantes a decidir o que fazer. Este guia reúne meus lugares favoritos e planos simples para aproveitar melhor sua viagem.</span>
+  </p>
+  <p class="hero-micro">
+    <span data-lang="es">✦ Lugares que conozco, que me gustaron y recomiendo porque valen la pena</span>
+    <span data-lang="pt">✦ Lugares que conheço, que gostei e recomendo porque vale a pena</span>
+  </p>
+  <div class="hero-ctas">
+    <a href="#playas" 
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span data-lang="es">Explorá la guía completa</span>
+      <span data-lang="pt">Explore o guia completo</span>
+    </a>
+    <span class="hero-cta-secondary">
+      <span data-lang="es">o <a href="https://wa.me/5548984211589?text=Hola%20Mauri!%20Estoy%20viendo%20tu%20guía%20de%20Floripa" target="_blank">recibí esta guía por WhatsApp</a></span>
+      <span data-lang="pt">ou <a href="https://wa.me/5548984211589?text=Oi%20Mauri!%20Estou%20vendo%20seu%20guia%20de%20Floripa" target="_blank">receba este guia pelo WhatsApp</a></span>
+    </span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#guia-rapida"><span data-lang="es">Guía rápida</span><span data-lang="pt">Guia rápido</span></a>
+  <a href="#playas"><span data-lang="es">Playas</span><span data-lang="pt">Praias</span></a>
+  <a href="#sol"><span data-lang="es">Amaneceres & Atardeceres</span><span data-lang="pt">Amanheceres & Pores do sol</span></a>
+  <a href="#restaurantes"><span data-lang="es">Restaurantes</span><span data-lang="pt">Restaurantes</span></a>
+  <a href="#bares"><span data-lang="es">Bares & Salidas</span><span data-lang="pt">Bares & Saídas</span></a>
+  <a href="#lluvia"><span data-lang="es">Día de lluvia</span><span data-lang="pt">Dia de chuva</span></a>
+  <a href="#descubrir"><span data-lang="es">Descubrir</span><span data-lang="pt">Descobrir</span></a>
+  <a href="#trilhas"><span data-lang="es">Trilhas</span><span data-lang="pt">Trilhas</span></a>
+</nav>
+
+<!-- ===== GUÍA RÁPIDA ===== -->
+<div class="quick-guide" id="guia-rapida">
+  <div class="quick-guide-inner">
+    <div class="section-header">
+      <span class="section-tag">
+        <span data-lang="es">✦ Por tipo de viaje</span>
+        <span data-lang="pt">✦ Por tipo de viagem</span>
+      </span>
+      <h2>
+        <span data-lang="es">Guía rápida según <em>tu viaje</em></span>
+        <span data-lang="pt">Guia rápido para <em>seu estilo</em></span>
+      </h2>
+      <div class="divider"></div>
+      <p class="section-intro">
+        <span data-lang="es">¿Pocos días en Floripa? Elegí tu perfil y te digo exactamente adónde ir. Sin vueltas.</span>
+        <span data-lang="pt">Poucos dias em Floripa? Escolha seu perfil e eu te digo exatamente aonde ir. Sem rodeios.</span>
+      </p>
+    </div>
+
+    <div class="trip-tabs">
+      <button class="trip-tab active" onclick="showTrip('pocosdias', this)">
+        <span data-lang="es">Pocos días</span>
+        <span data-lang="pt">Poucos dias</span>
+      </button>
+      <button class="trip-tab" onclick="showTrip('relax', this)">
+        <span data-lang="es">Relax</span>
+        <span data-lang="pt">Relax</span>
+      </button>
+      <button class="trip-tab" onclick="showTrip('activo', this)">
+        <span data-lang="es">Activo</span>
+        <span data-lang="pt">Ativo</span>
+      </button>
+      <button class="trip-tab" onclick="showTrip('lluvia', this)">
+        <span data-lang="es">Día de lluvia</span>
+        <span data-lang="pt">Dia de chuva</span>
+      </button>
+    </div>
+
+    <div class="trip-panels">
+
+      <!-- POCOS DÍAS -->
+      <div id="trip-pocosdias" class="active">
+        <div class="trip-item">
+          <div class="trip-item-num">
+            <span data-lang="es">Día 01</span>
+            <span data-lang="pt">Dia 01</span>
+          </div>
+          <h4>
+            <span data-lang="es">Praia Mole + Lagoa da Conceição</span>
+            <span data-lang="pt">Praia Mole + Lagoa da Conceição</span>
+          </h4>
+          <p>
+            <span data-lang="es">Primera impresión perfecta de Floripa: playa con energía, ambiente joven y tarde en Lagoa para caminar, comer algo o tomar un café.</span>
+            <span data-lang="pt">Primeira impressão perfeita de Floripa: praia com energia, ambiente jovem e tarde na Lagoa para caminhar, comer algo ou tomar um café.</span>
+          </p>
+        </div>
+        <div class="trip-item">
+          <div class="trip-item-num">
+            <span data-lang="es">Día 02</span>
+            <span data-lang="pt">Dia 02</span>
+          </div>
+          <h4>
+            <span data-lang="es">Santinho + Costão + Ingleses</span>
+            <span data-lang="pt">Santinho + Costão + Ingleses</span>
+          </h4>
+          <p>
+            <span data-lang="es">Si podés, arrancá con el amanecer en Santinho. Después hacé la trilha del Costão con pinturas rupestres y cerrá la tarde en las dunas o en el deck de Ingleses.</span>
+            <span data-lang="pt">Se puder, comece com o amanhecer no Santinho. Depois faça a trilha do Costão com pinturas rupestres e feche a tarde nas dunas ou no deck dos Ingleses.</span>
+          </p>
+        </div>
+        <div class="trip-item">
+          <div class="trip-item-num">
+            <span data-lang="es">Día 03</span>
+            <span data-lang="pt">Dia 03</span>
+          </div>
+          <h4>
+            <span data-lang="es">Fortaleza + Praia do Forte</span>
+            <span data-lang="pt">Fortaleza + Praia do Forte</span>
+          </h4>
+          <p>
+            <span data-lang="es">Plan ideal para después del mediodía: Fortaleza de São José da Ponta Grossa para conocer un poco de historia y después Praia do Forte para bajar revoluciones.</span>
+            <span data-lang="pt">Plano ideal para depois do meio-dia: Fortaleza de São José da Ponta Grossa para conhecer um pouco de história e depois Praia do Forte para relaxar.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- RELAX -->
+      <div id="trip-relax">
+        <div class="trip-item">
+          <h4>
+            <span data-lang="es">Playas tranquilas</span>
+            <span data-lang="pt">Praias tranquilas</span>
+          </h4>
+          <p>
+            <span data-lang="es">Praia de Daniela o Cachoeira do Bom Jesus. Ponta das Canas. Aguas calmas, sin olas, sin apuros.<br><br><em>Ideal si viajás en pareja, en familia o si querés un ritmo más tranquilo.</em></span>
+            <span data-lang="pt">Praia da Daniela ou Cachoeira do Bom Jesus. Ponta das Canas. Águas calmas, sem ondas, sem pressa.<br><br><em>Ideal se você viaja em casal, em família ou se quer um ritmo mais tranquilo.</em></span>
+          </p>
+        </div>
+        <div class="trip-item">
+          <h4>
+            <span data-lang="es">Atardecer obligado</span>
+            <span data-lang="pt">Pôr do sol obrigatório</span>
+          </h4>
+          <p>
+            <span data-lang="es">Atardecer en Santo Antônio de Lisboa. Un café en mano, el sol cayendo sobre la bahía. El plan perfecto para cerrar un día tranquilo.</span>
+            <span data-lang="pt">Pôr do sol em Santo Antônio de Lisboa. Um café na mão, o sol caindo sobre a baía. O plano perfeito para encerrar um dia tranquilo.</span>
+          </p>
+        </div>
+        <div class="trip-item">
+          <h4>
+            <span data-lang="es">Cena recomendada</span>
+            <span data-lang="pt">Jantar recomendado</span>
+          </h4>
+          <p>
+            <span data-lang="es">Paixão o Camarão Ingleses — ambiente tranquilo, cocina local, sin apuros.</span>
+            <span data-lang="pt">Paixão ou Camarão Ingleses — ambiente tranquilo, culinária local, sem pressa.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- ACTIVO -->
+      <div id="trip-activo">
+        <div class="trip-item">
+          <h4>
+            <span data-lang="es">Surf + olas</span>
+            <span data-lang="pt">Surf + ondas</span>
+          </h4>
+          <p>
+            <span data-lang="es">Praia Mole o Joaquina para olas y energía. Las mejores olas de la isla para empezar el día con todo.<br><br><em>Para quienes quieren moverse, caminar y hacer más cosas en el día.</em></span>
+            <span data-lang="pt">Praia Mole ou Joaquina para ondas e energia. As melhores ondas da ilha para começar o dia com tudo.<br><br><em>Para quem quer se movimentar, caminhar e fazer mais coisas no dia.</em></span>
+          </p>
+        </div>
+        <div class="trip-item">
+          <h4>
+            <span data-lang="es">Trilha a Praia do Gravatá</span>
+            <span data-lang="pt">Trilha até a Praia do Gravatá</span>
+          </h4>
+          <p>
+            <span data-lang="es">Dificultad media, miradores incluidos. La recompensa al final vale el esfuerzo — playa pequeña, especial y casi sin turistas.</span>
+            <span data-lang="pt">Dificuldade média, mirantes incluídos. A recompensa no final vale o esforço — praia pequena, especial e quase sem turistas.</span>
+          </p>
+        </div>
+        <div class="trip-item">
+          <h4>
+            <span data-lang="es">Tarde en Piscinas Naturais da Barra da Lagoa</span>
+            <span data-lang="pt">Tarde nas Piscinas Naturais da Barra da Lagoa</span>
+          </h4>
+          <p>
+            <span data-lang="es">Mini trilha de 15 minutos, piscinas naturales y atardecer para cerrar el día. Plan completo.</span>
+            <span data-lang="pt">Mini trilha de 15 minutos, piscinas naturais e pôr do sol para fechar o dia. Plano completo.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- DÍA DE LLUVIA -->
+      <div id="trip-lluvia">
+        <div class="trip-item">
+          <h4>
+            <span data-lang="es">Shopping</span>
+            <span data-lang="pt">Shopping</span>
+          </h4>
+          <p>
+            <span data-lang="es">Shopping Villa Romana o Floripa Shopping. Tiendas, gastronomía y cine para un día de lluvia sin perder el tiempo.<br><br><em>Si el clima no ayuda, igual podés conocer otro lado de Floripa.</em></span>
+            <span data-lang="pt">Shopping Villa Romana ou Floripa Shopping. Lojas, gastronomia e cinema para um dia de chuva sem perder o tempo.<br><br><em>Se o clima não ajudar, ainda dá para conhecer outro lado de Floripa.</em></span>
+          </p>
+        </div>
+        <div class="trip-item">
+          <h4>
+            <span data-lang="es">Mercado Público</span>
+            <span data-lang="pt">Mercado Público</span>
+          </h4>
+          <p>
+            <span data-lang="es">En el centro histórico. Comida local, bares, artesanías y mucho ambiente. Uno de los mejores planes bajo techo de Floripa.</span>
+            <span data-lang="pt">No centro histórico. Comida local, bares, artesanato e muito ambiente. Um dos melhores programas cobertos de Floripa.</span>
+          </p>
+        </div>
+        <div class="trip-item">
+          <h4>
+            <span data-lang="es">Museo Palácio Cruz e Sousa</span>
+            <span data-lang="pt">Museu Palácio Cruz e Sousa</span>
+          </h4>
+          <p>
+            <span data-lang="es">Arte e historia de Santa Catarina en un edificio hermoso del centro. Entrada asequible y vale la visita.</span>
+            <span data-lang="pt">Arte e história de Santa Catarina em um belo edifício no centro. Entrada acessível e vale a visita.</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== PLAYAS ===== -->
+<section id="playas">
+  <div class="section-header">
+    <span class="section-tag">
+      <span data-lang="es">✦ Mi selección</span>
+      <span data-lang="pt">✦ Minha seleção</span>
+    </span>
+    <h2>
+      <span data-lang="es">Las mejores <em>playas</em></span>
+      <span data-lang="pt">As melhores <em>praias</em></span>
+    </h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      <span data-lang="es">Floripa tiene más de 40 playas. Acá te cuento mis favoritas — con y sin olas — para que no pierdas tiempo eligiendo. Si tenés pocos días, empezá por las marcadas con Top.</span>
+      <span data-lang="pt">Floripa tem mais de 40 praias. Aqui estão minhas favoritas — com e sem ondas — para você não perder tempo escolhendo. Se tiver poucos dias, comece pelas marcadas com Top.</span>
+    </p>
+  </div>
+
+  <!-- CON OLAS -->
+  <div class="beach-group">
+    <div class="beach-group-title">
+      <span data-lang="es">Con olas — Para surfistas y amantes de la energía</span>
+      <span data-lang="pt">Com ondas — Para surfistas e amantes de energia</span>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card top-pick">
+        <div class="card-img">
+          <img src="images/santinho.JPEG" alt="Praia de Santinho" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <span class="top-badge">TOP 1</span>
+        <div class="card-body">
+          <span class="badge badge-wave"><span data-lang="es">Con olas</span><span data-lang="pt">Com ondas</span></span>
+          <h3>Praia de Santinho</h3>
+          <p>
+            <span data-lang="es">Amor a primera vista. Naturaleza pura, las mejores olas del norte y vistas increíbles. Mi playa favorita, sin dudas.</span>
+            <span data-lang="pt">Amor à primeira vista. Natureza pura, as melhores ondas do norte e vistas incríveis. Minha praia favorita, sem dúvida.</span>
+          </p>
+          <span class="card-tip">
+            <span data-lang="es">Ideal para: surf, fotos, amanecer</span>
+            <span data-lang="pt">Ideal para: surf, fotos, amanhecer</span>
+          </span>
+          <a href="https://maps.google.com/search?q=Praia+do+Santinho+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/Praia Mole.JPEG" alt="Praia Mole" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="card-body">
+          <span class="badge badge-wave"><span data-lang="es">Con olas</span><span data-lang="pt">Com ondas</span></span>
+          <h3>Praia Mole</h3>
+          <p>
+            <span data-lang="es">Vibe surfista, mucha energía, miradores increíbles. Una de mis favoritas para sentir el alma de Floripa.</span>
+            <span data-lang="pt">Clima surfista, muita energia, mirantes incríveis. Uma das minhas favoritas para sentir a alma de Floripa.</span>
+          </p>
+          <span class="card-tip">
+            <span data-lang="es">Ideal para: surf, jóvenes, buen ambiente</span>
+            <span data-lang="pt">Ideal para: surf, jovens, bom ambiente</span>
+          </span>
+          <a href="https://maps.google.com/search?q=Praia+Mole+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/joaquina.JPEG" alt="Praia da Joaquina" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="card-body">
+          <span class="badge badge-wave"><span data-lang="es">Con olas</span><span data-lang="pt">Com ondas</span></span>
+          <h3>Praia da Joaquina</h3>
+          <p>
+            <span data-lang="es">Dunas, olas perfectas para surf. Postal icónica de Floripa, ideal para pasar el día entero.</span>
+            <span data-lang="pt">Dunas, ondas perfeitas para surf. Cartão-postal icônico de Floripa, ideal para passar o dia inteiro.</span>
+          </p>
+          <span class="card-tip">
+            <span data-lang="es">Ideal para: surf y dunas — evitá si buscás tranquilidad</span>
+            <span data-lang="pt">Ideal para: surf e dunas — evite se busca tranquilidade</span>
+          </span>
+          <a href="https://maps.google.com/search?q=Praia+da+Joaquina+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIN OLAS -->
+  <div class="beach-group">
+    <div class="beach-group-title">
+      <span data-lang="es">Sin olas — Para relajarse y disfrutar tranquilo</span>
+      <span data-lang="pt">Sem ondas — Para relaxar e curtir com tranquilidade</span>
+    </div>
+    <div class="cards-grid">
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/pontaldedaniela.JPEG" alt="Praia de Daniela" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="card-body">
+          <span class="badge badge-calm"><span data-lang="es">Sin olas</span><span data-lang="pt">Sem ondas</span></span>
+          <h3>Praia de Daniela</h3>
+          <p>
+            <span data-lang="es">Aguas calmas, perfecta para familias y para nadar sin preocupaciones. Al norte de la isla.</span>
+            <span data-lang="pt">Águas calmas, perfeita para famílias e para nadar sem preocupações. No norte da ilha.</span>
+          </p>
+          <span class="card-tip">
+            <span data-lang="es">Ideal para: familias con chicos</span>
+            <span data-lang="pt">Ideal para: famílias com crianças</span>
+          </span>
+          <a href="https://maps.google.com/search?q=Praia+de+Daniela+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/cachoeiradebomjesus.JPEG" alt="Praia de Canasvieiras" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="card-body">
+          <span class="badge badge-calm"><span data-lang="es">Sin olas</span><span data-lang="pt">Sem ondas</span></span>
+          <h3>Praia de Canasvieiras</h3>
+          <p>
+            <span data-lang="es">Gran infraestructura, bares, restaurantes. Muy popular entre los argentinos, con aguas tranquilas.</span>
+            <span data-lang="pt">Ótima infraestrutura, bares, restaurantes. Muito popular entre os argentinos, com águas tranquilas.</span>
+          </p>
+          <span class="card-tip">
+            <span data-lang="es">Ideal para: primer día, fácil acceso</span>
+            <span data-lang="pt">Ideal para: primeiro dia, fácil acesso</span>
+          </span>
+          <a href="https://maps.google.com/search?q=Praia+de+Canasvieiras+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/pontadascanas.JPEG" alt="Ponta das Canas" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="card-body">
+          <span class="badge badge-calm"><span data-lang="es">Sin olas</span><span data-lang="pt">Sem ondas</span></span>
+          <h3>Ponta das Canas</h3>
+          <p>
+            <span data-lang="es">Encantadora y tranquila. Pueblo pesquero auténtico, lejos del turismo masivo. También sirve para el atardecer.</span>
+            <span data-lang="pt">Encantadora e tranquila. Vila pesqueira autêntica, longe do turismo em massa. Também serve para o pôr do sol.</span>
+          </p>
+          <span class="card-tip">
+            <span data-lang="es">Ideal para: desconectar, atardecer</span>
+            <span data-lang="pt">Ideal para: desconectar, pôr do sol</span>
+          </span>
+          <a href="https://maps.google.com/search?q=Ponta+das+Canas+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img">
+          <img src="images/gravata2.JPEG" alt="Praia de Gravatá" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="card-body">
+          <span class="badge badge-calm"><span data-lang="es">Sin olas</span><span data-lang="pt">Sem ondas</span></span>
+          <h3>Praia de Gravatá</h3>
+          <p>
+            <span data-lang="es">Pequeña y especial. Tiene trilha de acceso — hacela caminando y la experiencia vale el doble.</span>
+            <span data-lang="pt">Pequena e especial. Tem trilha de acesso — faça caminhando e a experiência vale o dobro.</span>
+          </p>
+          <span class="card-tip">
+            <span data-lang="es">Ideal para: aventureros, senderismo</span>
+            <span data-lang="pt">Ideal para: aventureiros, caminhada</span>
+          </span>
+          <a href="https://maps.google.com/search?q=Praia+de+Gravata+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MID-PAGE CTA ===== -->
+<div class="mid-cta-strip">
+  <div class="mid-cta-strip-inner">
+    <p>
+      <strong>
+        <span data-lang="es">¿Querés ver estos lugares en tiempo real?</span>
+        <span data-lang="pt">Quer ver esses lugares em tempo real?</span>
+      </strong><br>
+      <span data-lang="es">Subo fotos y stories de cada rincón de la isla. Seguime y guardá esta guía para tu viaje.</span>
+      <span data-lang="pt">Posto fotos e stories de cada cantinho da ilha. Me siga e salve este guia para sua viagem.</span>
+    </p>
+    <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+      <a href="https://instagram.com/viajesconmauri" target="_blank" class="cta-btn-solid">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @viajesconmauri
+      </a>
+      <a href="https://wa.me/5548984211589?text=Hola%20Mauri!%20Estoy%20viendo%20tu%20guía%20de%20Floripa" target="_blank" class="cta-btn-outline">
+        <span data-lang="es">Recibí la guía por WhatsApp</span>
+        <span data-lang="pt">Receba o guia pelo WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SOL ===== -->
+<div style="background: linear-gradient(180deg, var(--bg-light) 0%, #f0ece5 100%); padding: 20px 0;">
+<section id="sol">
+  <div class="section-header">
+    <span class="section-tag">
+      <span data-lang="es">✦ Momentos mágicos</span>
+      <span data-lang="pt">✦ Momentos mágicos</span>
+    </span>
+    <h2>
+      <span data-lang="es">Amaneceres & <em>Atardeceres</em></span>
+      <span data-lang="pt">Amanheceres & <em>Pores do sol</em></span>
+    </h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      <span data-lang="es">Para mí, los planes más simples son los más lindos. Un buen amanecer no tiene precio. Acá mis spots favoritos — con mi ranking personal.</span>
+      <span data-lang="pt">Para mim, os planos mais simples são os mais bonitos. Um bom amanhecer não tem preço. Aqui meus spots favoritos — com meu ranking pessoal.</span>
+    </p>
+  </div>
+
+  <div class="sun-grid">
+    <div class="sun-card" style="border-top: 2px solid var(--sand);">
+      <div class="sun-img">
+  <img src="images/maurisantinhoamanecer.jpg" alt="Amanecer Santinho">
+</div>
+      <span class="badge badge-sunrise">
+        <span data-lang="es">Nº 1 Amanecer</span>
+        <span data-lang="pt">Nº 1 Amanhecer</span>
+      </span>
+      <h3>Praia do Santinho</h3>
+      <p>
+        <span data-lang="es">Se lleva el podio. Ver salir el sol desde Santinho es una experiencia que no vas a olvidar. Madrugá — vale cada minuto perdido de sueño.</span>
+        <span data-lang="pt">Leva o pódio. Ver o sol nascer no Santinho é uma experiência inesquecível. Acorda cedo — vale cada minuto perdido de sono.</span>
+      </p>
+      <span class="sun-tip">
+        <span data-lang="es">Salí antes de las 5:30 AM</span>
+        <span data-lang="pt">Saia antes das 5:30 da manhã</span>
+      </span>
+      <a href="https://maps.google.com/search?q=Praia+do+Santinho+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="sun-card" style="border-top: 2px solid rgba(110,139,116,0.4);">
+      <div class="sun-img">
+  <img src="images/campecheamanecer.jpg" alt="Amanecer Praia do Campeche">
+</div>
+      <span class="badge badge-sunrise">
+        <span data-lang="es">Amanecer</span>
+        <span data-lang="pt">Amanhecer</span>
+      </span>
+      <h3>Praia do Campeche</h3>
+      <p>
+        <span data-lang="es">Hermoso también. El sur de la isla tiene algo especial al amanecer, con la isla del Campeche de fondo.</span>
+        <span data-lang="pt">Muito bonito também. O sul da ilha tem algo especial ao amanhecer, com a ilha do Campeche ao fundo.</span>
+      </p>
+      <span class="sun-tip">
+        <span data-lang="es">Ideal para: fotos con horizonte abierto</span>
+        <span data-lang="pt">Ideal para: fotos com horizonte aberto</span>
+      </span>
+      <a href="https://maps.google.com/search?q=Praia+do+Campeche+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="sun-card" style="border-top: 2px solid var(--mid-blue);">
+      <div class="sun-img">
+  <img src="images/santoantonio.JPEG" alt="Atardecer Santo Antônio de Lisboa">
+</div>
+      <span class="badge badge-sunset">
+        <span data-lang="es">Nº 1 Atardecer</span>
+        <span data-lang="pt">Nº 1 Pôr do sol</span>
+      </span>
+      <h3>Santo Antônio de Lisboa</h3>
+      <p>
+        <span data-lang="es">El mejor atardecer de la isla, sin discusión. Pueblo histórico, puesta de sol sobre la bahía y un café en mano.</span>
+        <span data-lang="pt">O melhor pôr do sol da ilha, sem discussão. Vila histórica, sol sobre a baía e um café na mão.</span>
+      </p>
+      <span class="sun-tip">
+        <span data-lang="es">Llegá 30 min antes — conseguís buen lugar</span>
+        <span data-lang="pt">Chegue 30 min antes — consegue bom lugar</span>
+      </span>
+      <a href="https://maps.google.com/search?q=Santo+Antonio+de+Lisboa+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="sun-card" style="border-top: 2px solid rgba(110,139,116,0.3);">
+      <div class="sun-img">
+  <img src="images/pontadascanas.JPEG" alt="Atardecer Ponta das Canas">
+</div>
+      <span class="badge badge-sunset">
+        <span data-lang="es">Atardecer</span>
+        <span data-lang="pt">Pôr do sol</span>
+      </span>
+      <h3>Ponta das Canas</h3>
+      <p>
+        <span data-lang="es">El norte de la isla ofrece atardeceres sobre el mar abierto. Tranquilo, especial, sin multitudes.</span>
+        <span data-lang="pt">O norte da ilha oferece pores do sol sobre o mar aberto. Tranquilo, especial, sem multidões.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Ponta+das+Canas+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="sun-card" style="border-top: 2px solid rgba(13,43,54,0.15);">
+      <div class="sun-img">
+  <img src="images/praiaforteatardecer.JPEG" alt="Atardecer Praia Forte">
+</div>
+      <span class="badge badge-sunset">
+        <span data-lang="es">Atardecer</span>
+        <span data-lang="pt">Pôr do sol</span>
+      </span>
+      <h3>Praia Forte</h3>
+      <p>
+        <span data-lang="es">Otro spot muy recomendable para ver el sol caer. Aguas calmas y colores increíbles.</span>
+        <span data-lang="pt">Outro spot muito recomendável para ver o sol se pôr. Águas calmas e cores incríveis.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Praia+Forte+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ===== RESTAURANTES ===== -->
+<section id="restaurantes">
+  <div class="section-header">
+    <span class="section-tag">
+      <span data-lang="es">✦ Dónde comer</span>
+      <span data-lang="pt">✦ Onde comer</span>
+    </span>
+    <h2>
+      <span data-lang="es">Restaurantes & <em>Padarias</em></span>
+      <span data-lang="pt">Restaurantes & <em>Padarias</em></span>
+    </h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      <span data-lang="es">Los mejores de Ingleses y zona norte. Todos probados y aprobados por Mauri — sin restaurantes pagos, solo recomendaciones reales.</span>
+      <span data-lang="pt">Os melhores de Ingleses e região norte. Todos testados e aprovados por Mauri — sem restaurantes pagos, só recomendações reais.</span>
+    </p>
+  </div>
+
+  <div class="beach-group-title" style="margin-bottom:20px;">
+    <span data-lang="es">Restaurantes</span><span data-lang="pt">Restaurantes</span>
+  </div>
+  <div class="resto-list" style="margin-bottom:40px;">
+
+<div class="resto-card">
+  
+  <span class="badge badge-food">
+        <span data-lang="es">Mariscos</span><span data-lang="pt">Frutos do mar</span>
+      </span>
+      <h3>Camarão Ingleses</h3>
+      <p>
+        <span data-lang="es">El camarón de Floripa en su mejor versión. No vayas sin reserva en temporada alta.</span>
+        <span data-lang="pt">O camarão de Floripa na sua melhor versão. Não vá sem reserva na alta temporada.</span>
+      </p>
+      <span class="resto-tip">
+        <span data-lang="es">Tip: reservá con anticipación en enero-febrero</span>
+        <span data-lang="pt">Tip: reserve com antecedência em janeiro-fevereiro</span>
+      </span>
+      <a href="https://maps.google.com/search?q=Camarao+Ingleses+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="resto-card">
+      <span class="badge badge-food">
+        <span data-lang="es">Brasileño</span><span data-lang="pt">Brasileiro</span>
+      </span>
+      <h3>Paixão</h3>
+      <p>
+        <span data-lang="es">Muy bueno, ambiente acogedor. Uno de los favoritos de la zona de Ingleses. Cocina local de calidad.</span>
+        <span data-lang="pt">Muito bom, ambiente acolhedor. Um dos favoritos da região de Ingleses. Culinária local de qualidade.</span>
+      </p>
+      <span class="resto-tip">
+        <span data-lang="es">Ideal para cenas tranquilas en pareja</span>
+        <span data-lang="pt">Ideal para jantares tranquilos a dois</span>
+      </span>
+      <a href="https://maps.google.com/search?q=Paixao+Restaurante+Ingleses+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="resto-card">
+      <span class="badge badge-food">Pizza</span>
+      <h3>Pizzeria Ravi Mari</h3>
+      <p>
+        <span data-lang="es">Pizzas excelentes. Si tenés antojo de una buena pizza, esta es tu parada obligada en Ingleses.</span>
+        <span data-lang="pt">Pizzas excelentes. Se você estiver com vontade de uma boa pizza, esta é a sua parada obrigatória em Ingleses.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Pizzeria+Ravi+Mari+Ingleses+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+  </div>
+
+  <div class="beach-group-title" style="margin-bottom:20px;">
+    <span data-lang="es">Padarias & Cafés</span><span data-lang="pt">Padarias & Cafés</span>
+  </div>
+  <div class="resto-list">
+
+    <div class="resto-card" style="border-left-color: var(--soft-green);">
+      <span class="badge badge-trail">
+        <span data-lang="es">Padaria</span><span data-lang="pt">Padaria</span>
+      </span>
+      <h3>Princesa da Ilha</h3>
+      <p>
+        <span data-lang="es">Clásica de Floripa. Pão de queijo, café fresquito y un desayuno de los que no se olvidan.</span>
+        <span data-lang="pt">Clássica de Floripa. Pão de queijo, café fresquinho e um café da manhã para não esquecer.</span>
+      </p>
+      <span class="resto-tip">
+        <span data-lang="es">Mejor desayuno del norte — no la saltes</span>
+        <span data-lang="pt">Melhor café da manhã do norte — não pule</span>
+      </span>
+      <a href="https://maps.google.com/search?q=Padaria+Princesa+da+Ilha+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="resto-card" style="border-left-color: var(--soft-green);">
+      <span class="badge badge-trail">
+        <span data-lang="es">Cafetería</span><span data-lang="pt">Cafeteria</span>
+      </span>
+      <h3>Doses e Salgados</h3>
+      <p>
+        <span data-lang="es">Salgados increíbles y café de calidad. Para tomar algo rápido o quedarte a charlar un rato.</span>
+        <span data-lang="pt">Salgados incríveis e café de qualidade. Para tomar algo rápido ou ficar conversando um pouco.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Doses+e+Salgados+Ingleses+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== BARES & SALIDAS ===== -->
+<div style="background: linear-gradient(180deg, var(--bg-light) 0%, #eef2f5 100%); padding: 20px 0;">
+<section id="bares">
+  <div class="section-header">
+    <span class="section-tag">
+      <span data-lang="es">✦ Top 5 Mauri</span>
+      <span data-lang="pt">✦ Top 5 Mauri</span>
+    </span>
+    <h2>
+      <span data-lang="es">Bares & <em>salidas</em></span>
+      <span data-lang="pt">Bares & <em>saídas</em></span>
+    </h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      <span data-lang="es">Si querés salir de noche, acá están mis cinco favoritos — probados, aprobados y recomendados con criterio.</span>
+      <span data-lang="pt">Se você quer sair à noite, aqui estão meus cinco favoritos — testados, aprovados e recomendados com critério.</span>
+    </p>
+  </div>
+
+  <div class="resto-list">
+
+    <div class="resto-card" style="border-left-color: var(--sand);">
+      <span class="badge badge-sunrise">TOP 1</span>
+      <h3>Amo Floripa Café Bar</h3>
+      <p>
+        <span data-lang="es">Frente al Puente Hercílio Luz. Pagode en vivo, vista increíble y ambiente que se arma solo.</span>
+        <span data-lang="pt">Em frente à Ponte Hercílio Luz. Pagode ao vivo, vista incrível e um ambiente que se cria sozinho.</span>
+      </p>
+      <span class="resto-tip">
+        <span data-lang="es">Ideal para: arrancar la noche con buena energía</span>
+        <span data-lang="pt">Ideal para: começar a noite com boa energia</span>
+      </span>
+      <a href="https://maps.google.com/search?q=Amo+Floripa+Cafe+Bar+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="resto-card" style="border-left-color: var(--mid-blue);">
+      <span class="badge badge-wave">TOP 2</span>
+      <h3>Bar do Noel</h3>
+      <p>
+        <span data-lang="es">Samba en vivo, buena vibra y clima local. Simple, auténtico y con mucha energía.</span>
+        <span data-lang="pt">Samba ao vivo, boa vibe e clima local. Simples, autêntico e com muita energia.</span>
+      </p>
+      <span class="resto-tip">
+        <span data-lang="es">Ideal para: una salida más local y menos turística</span>
+        <span data-lang="pt">Ideal para: uma saída mais local e menos turística</span>
+      </span>
+      <a href="https://maps.app.goo.gl/mAE4gftDqzodXgALA" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="resto-card" style="border-left-color: var(--soft-green);">
+      <span class="badge badge-trail">TOP 3</span>
+      <h3>Barzin Bar</h3>
+      <p>
+        <span data-lang="es">Más elegante, pagode en vivo y excelente ambiente. Buen lugar si querés algo con más producción.</span>
+        <span data-lang="pt">Mais elegante, pagode ao vivo e excelente ambiente. Bom lugar se você quer algo mais produzido.</span>
+      </p>
+      <span class="resto-tip">
+        <span data-lang="es">Ideal para: salir bien vestido y tomar algo tranqui</span>
+        <span data-lang="pt">Ideal para: sair bem arrumado e tomar algo tranquilo</span>
+      </span>
+      <a href="https://maps.app.goo.gl/bPE8HLnXDWZQRn6Z7" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="resto-card" style="border-left-color: var(--mid-blue);">
+      <span class="badge badge-wave">TOP 4</span>
+      <h3>Fucksa Bar</h3>
+      <p>
+        <span data-lang="es">Muy lindo spot en Ingleses Norte. Buena opción si estás hospedado por la zona y no querés moverte tanto.</span>
+        <span data-lang="pt">Spot muito legal nos Ingleses Norte. Boa opção se você está hospedado pela região e não quer se deslocar muito.</span>
+      </p>
+      <span class="resto-tip">
+        <span data-lang="es">Ideal para: plan cerca de Ingleses</span>
+        <span data-lang="pt">Ideal para: rolê perto dos Ingleses</span>
+      </span>
+      <a href="https://maps.app.goo.gl/c6YzhCYEM3DqA3s76" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="resto-card" style="border-left-color: var(--soft-green);">
+      <span class="badge badge-trail">TOP 5</span>
+      <h3>Vila Futuro Ingleses</h3>
+      <p>
+        <span data-lang="es">Buena comida, buena bebida y música en vivo. Plan completo para cenar, tomar algo y quedarse un rato más.</span>
+        <span data-lang="pt">Boa comida, boa bebida e música ao vivo. Plano completo para jantar, tomar algo e ficar mais um pouco.</span>
+      </p>
+      <span class="resto-tip">
+        <span data-lang="es">Ideal para: cena + música + tragos</span>
+        <span data-lang="pt">Ideal para: jantar + música + drinks</span>
+      </span>
+      <a href="https://maps.app.goo.gl/z9KLtLENyKRYAEeA7" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ===== DÍA DE LLUVIA ===== -->
+<div style="padding: 0 0 80px;">
+<div class="rain-section">
+  <div id="lluvia" class="section-header">
+    <span class="section-tag">
+      <span data-lang="es">✦ No todo es playa</span>
+      <span data-lang="pt">✦ Nem só de praia vive o homem</span>
+    </span>
+    <h2>
+      <span data-lang="es">Plan para el <em>día de lluvia</em></span>
+      <span data-lang="pt">Plano para o <em>dia de chuva</em></span>
+    </h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      <span data-lang="es">Llueve en Floripa y no sabés qué hacer. Tranqui — la isla tiene mucho más que playas. Estas son mis opciones para no perder el día.</span>
+      <span data-lang="pt">Chove em Floripa e você não sabe o que fazer. Tranquilo — a ilha tem muito mais do que praias. Estas são minhas opções para não perder o dia.</span>
+    </p>
+  </div>
+
+  <div class="rain-grid">
+    <div class="rain-card">
+      <span class="badge badge-rain">Shopping</span>
+      <h3>Villa Romana</h3>
+      <p>
+        <span data-lang="es">El más grande de Floripa. Tiendas ancla, restaurantes, cine. El clásico para un día de lluvia.</span>
+        <span data-lang="pt">O maior de Floripa. Lojas âncora, restaurantes, cinema. O clássico para um dia de chuva.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Shopping+Villa+Romana+Florianopolis" target="_blank" class="map-link" style="border-color:rgba(230,211,163,0.3); color:var(--sand); opacity:0.7;">📍 Google Maps</a>
+    </div>
+
+    <div class="rain-card">
+      <span class="badge badge-rain">Shopping</span>
+      <h3>Floripa Shopping</h3>
+      <p>
+        <span data-lang="es">Muy lindo, bien organizado. Buenas tiendas y gastronomía. Mi segundo favorito para un día de lluvia.</span>
+        <span data-lang="pt">Muito bonito, bem organizado. Boas lojas e gastronomia. Meu segundo favorito para um dia de chuva.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Floripa+Shopping+Florianopolis" target="_blank" class="map-link" style="border-color:rgba(230,211,163,0.3); color:var(--sand); opacity:0.7;">📍 Google Maps</a>
+    </div>
+
+    <div class="rain-card">
+      <span class="badge badge-rain">Shopping</span>
+      <h3>Beira Mar Shopping</h3>
+      <p>
+        <span data-lang="es">Sobre la costanera central. Bonitas vistas y buena oferta comercial. Opción tres para el plan lluvia.</span>
+        <span data-lang="pt">Na orla central. Belas vistas e boa oferta comercial. Terceira opção para o plano chuva.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Beira+Mar+Shopping+Florianopolis" target="_blank" class="map-link" style="border-color:rgba(230,211,163,0.3); color:var(--sand); opacity:0.7;">📍 Google Maps</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== DESCUBRIR ===== -->
+<section id="descubrir">
+  <div class="section-header">
+    <span class="section-tag">
+      <span data-lang="es">✦ Más allá de la playa</span>
+      <span data-lang="pt">✦ Além da praia</span>
+    </span>
+    <h2>
+      <span data-lang="es">Para <em>descubrir</em> la isla</span>
+      <span data-lang="pt">Para <em>descobrir</em> a ilha</span>
+    </h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      <span data-lang="es">Floripa tiene historia, naturaleza y cultura. Estos son los spots que me volaron la cabeza más allá de las playas.</span>
+      <span data-lang="pt">Floripa tem história, natureza e cultura. Estes são os spots que me impressionaram além das praias.</span>
+    </p>
+  </div>
+
+  <div class="sun-grid">
+    <div class="sun-card" style="border-top: 2px solid var(--mid-blue);">
+      <div class="sun-icon">🏰</div>
+      <span class="badge badge-wave">
+        <span data-lang="es">Historia</span><span data-lang="pt">História</span>
+      </span>
+      <h3>Fortaleza de São José da Ponta Grossa</h3>
+      <p>
+        <span data-lang="es">Una joya escondida en el norte de la isla. Cuenta la historia de Floripa y Santa Catarina. Vale la visita — entrada solo R$16.</span>
+        <span data-lang="pt">Uma joia escondida no norte da ilha. Conta a história de Floripa e Santa Catarina. Vale a visita — entrada apenas R$16.</span>
+      </p>
+      <p style="font-size:13px; color: var(--soft-green); font-weight:500;">
+        <span data-lang="es">R$16 · Todos los días · 45 min aprox.</span>
+        <span data-lang="pt">R$16 · Todos os dias · 45 min aprox.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Fortaleza+de+Sao+Jose+da+Ponta+Grossa+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="sun-card" style="border-top: 2px solid var(--soft-green);">
+      <div class="sun-icon">🌿</div>
+      <span class="badge badge-trail">
+        <span data-lang="es">Naturaleza</span><span data-lang="pt">Natureza</span>
+      </span>
+      <h3>Jardim Botânico de Florianópolis</h3>
+      <p>
+        <span data-lang="es">En el centro de la ciudad. Ideal para un paseo tranquilo rodeado de naturaleza. Entrada gratuita — perfecto para cualquier día.</span>
+        <span data-lang="pt">No centro da cidade. Ideal para um passeio tranquilo cercado de natureza. Entrada gratuita — perfeito para qualquer dia.</span>
+      </p>
+      <p style="font-size:13px; color: var(--soft-green); font-weight:500;">
+        <span data-lang="es">Entrada gratuita · Ideal familias</span>
+        <span data-lang="pt">Entrada gratuita · Ideal famílias</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Jardim+Botanico+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRILHAS ===== -->
+<div style="background: linear-gradient(180deg, var(--bg-light) 0%, #edf2ee 100%); padding: 20px 0;">
+<section id="trilhas">
+  <div class="section-header">
+    <span class="section-tag">
+      <span data-lang="es">✦ A caminar</span>
+      <span data-lang="pt">✦ Vamos caminhar</span>
+    </span>
+    <h2>
+      <span data-lang="es">Trilhas <em>imperdibles</em></span>
+      <span data-lang="pt">Trilhas <em>imperdíveis</em></span>
+    </h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      <span data-lang="es">Floripa no es solo playas — también tiene trilhas increíbles para todos los niveles. Acá las que yo hice y recomiendo con seguridad.</span>
+      <span data-lang="pt">Floripa não é só praias — também tem trilhas incríveis para todos os níveis. Aqui as que eu fiz e recomendo com segurança.</span>
+    </p>
+  </div>
+
+  <div class="trail-cards">
+
+    <div class="trail-card">
+      <div class="difficulty">Verde — <span data-lang="es">Fácil</span><span data-lang="pt">Fácil</span></div>
+      <h3>Trilha Santinho → Ingleses</h3>
+      <p>
+        <span data-lang="es">Cruza de Ingleses a Santinho con miradores al mar. Perfecta para arrancar en las trilhas de la isla. No se necesita experiencia previa.</span>
+        <span data-lang="pt">Cruza dos Ingleses até o Santinho com mirantes para o mar. Perfeita para começar nas trilhas da ilha. Não precisa de experiência prévia.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Trilha+Santinho+Ingleses+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="trail-card">
+      <div class="difficulty" style="color: #c09a00;">Amarillo — <span data-lang="es">Media</span><span data-lang="pt">Média</span></div>
+      <h3>Trilha de Gravatá</h3>
+      <p>
+        <span data-lang="es">Dificultad media, con mirantes a la playa. Te lleva directo a Praia de Gravatá. Vale el esfuerzo — la recompensa es hermosa.</span>
+        <span data-lang="pt">Dificuldade média, com mirantes para a praia. Leva direto à Praia de Gravatá. Vale o esforço — a recompensa é linda.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Trilha+Gravata+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+    <div class="trail-card">
+      <div class="difficulty">Verde — <span data-lang="es">Muy fácil · 15 min</span><span data-lang="pt">Muito fácil · 15 min</span></div>
+      <h3>Piscinas Naturais de Barra da Lagoa</h3>
+      <p>
+        <span data-lang="es">Mini trilha de 15 minutos que lleva a las piscinas naturales. También podés quedarte para el atardecer. Increíble para cerrar el día.</span>
+        <span data-lang="pt">Mini trilha de 15 minutos que leva às piscinas naturais. Você também pode ficar para o pôr do sol. Incrível para fechar o dia.</span>
+      </p>
+      <a href="https://maps.google.com/search?q=Piscinas+Naturais+Barra+da+Lagoa+Florianopolis" target="_blank" class="map-link">📍 Google Maps</a>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- ===== CTA INSTAGRAM ===== -->
+<div class="cta-section">
+  <h2>
+    <span data-lang="es">¿Querés ver la isla <em>en vivo</em>?</span>
+    <span data-lang="pt">Quer ver a ilha <em>ao vivo</em>?</span>
+  </h2>
+  <p>
+    <span data-lang="es">Subo fotos y videos de todos los lugares que voy conociendo — playas, atardeceres, trilhas y más. Seguime en Instagram para ver todo esto en tiempo real.</span>
+    <span data-lang="pt">Posto fotos e vídeos de todos os lugares que vou conhecendo — praias, pores do sol, trilhas e muito mais. Me siga no Instagram para ver tudo isso em tempo real.</span>
+  </p>
+  <div class="cta-group">
+    <a href="https://instagram.com/viajesconmauri" target="_blank" class="cta-ig">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @viajesconmauri
+    </a>
+    <a href="https://wa.me/5548984211589?text=Hola%20Mauri!%20Estoy%20viendo%20tu%20guía%20de%20Floripa%20y%20quería%20consultarte%20algo" target="_blank" class="cta-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-lang="es">Consultame por WhatsApp</span>
+      <span data-lang="pt">Me consulte pelo WhatsApp</span>
+    </a>
+  </div>
+</div>
+
+<!-- ===== DONACIÓN ===== -->
+<section id="donacion" style="max-width:1100px; margin:0 auto; padding:80px 24px;">
+  <div class="section-header">
+    <span class="section-tag">
+      <span data-lang="es">✦ Apoyá el proyecto</span>
+      <span data-lang="pt">✦ Apoie o projeto</span>
+    </span>
+    <h2>
+      <span data-lang="es">Apoyá esta <em>guía</em></span>
+      <span data-lang="pt">Apoie este <em>guia</em></span>
+    </h2>
+    <div class="divider"></div>
+    <p class="section-intro">
+      <span data-lang="es">Si esta guía te sirvió o te hizo descubrir algún lugar, podés apoyar el proyecto con una donación a voluntad. Todo suma y me ayuda a seguir creando contenido y mejorando esta guía.</span>
+      <span data-lang="pt">Se este guia te ajudou ou fez você descobrir algum lugar, você pode apoiar o projeto com uma doação voluntária. Qualquer valor ajuda e me motiva a continuar criando conteúdo e melhorando este guia.</span>
+    </p>
+  </div>
+
+  <div class="resto-list" style="max-width:680px;">
+
+    <!-- PIX -->
+    <div class="resto-card" style="border-left-color: var(--soft-green);">
+      <span class="badge badge-trail">Pix Brasil</span>
+      <h3 style="font-size:17px;">Pix Brasil</h3>
+      <p style="margin-bottom:16px;">
+        <span data-lang="es">Chave Pix (CPF):</span>
+        <span data-lang="pt">Chave Pix (CPF):</span>
+        <br>
+        <span style="font-family:'Playfair Display',serif; font-size:17px; color:var(--deep-blue); font-weight:700; letter-spacing:0.5px;">12772568105</span>
+      </p>
+      <button onclick="copyText('12772568105', this)" class="copy-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        <span data-lang="es">Copiar clave</span>
+        <span data-lang="pt">Copiar chave</span>
+      </button>
+    </div>
+
+    <!-- ARGENTINA -->
+    <div class="resto-card" style="border-left-color: var(--mid-blue);">
+      <span class="badge badge-wave">Argentina</span>
+      <h3 style="font-size:17px;">Argentina</h3>
+      <p style="margin-bottom:16px;">
+        <span data-lang="es">Alias:</span>
+        <span data-lang="pt">Alias:</span>
+        <br>
+        <span style="font-family:'Playfair Display',serif; font-size:17px; color:var(--deep-blue); font-weight:700; letter-spacing:0.5px;">maurillobre.astro</span>
+      </p>
+      <button onclick="copyText('maurillobre.astro', this)" class="copy-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        <span data-lang="es">Copiar alias</span>
+        <span data-lang="pt">Copiar alias</span>
+      </button>
+    </div>
+
+  </div>
+
+  <p style="margin-top:24px; font-size:13px; color:var(--text-muted); font-style:italic;">
+    <span data-lang="es">Es totalmente opcional. Gracias por apoyar.</span>
+    <span data-lang="pt">É totalmente opcional. Obrigado por apoiar.</span>
+  </p>
+</section>
+
+<style>
+  .copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: transparent;
+    color: var(--mid-blue);
+    border: 1.5px solid rgba(31,92,115,0.3);
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s;
+  }
+  .copy-btn:hover {
+    background: var(--mid-blue);
+    color: white;
+    border-color: var(--mid-blue);
+  }
+  .copy-btn.copied {
+    background: var(--soft-green);
+    color: white;
+    border-color: var(--soft-green);
+  }
+</style>
+
+<footer>
+  <p>
+    <span data-lang="es">Hecho por Mauri — descubriendo Floripa todos los días</span>
+    <span data-lang="pt">Feito por Mauri — descobrindo Floripa todos os dias</span>
+  </p>
+
+  <p style="margin-top:6px; font-size:13px; opacity:0.6;">
+    <a href="https://instagram.com/viajesconmauri" target="_blank">@viajesconmauri</a>
+  </p>
+</footer>
+
+<script>
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.classList.add('copied');
+    const spans = btn.querySelectorAll('[data-lang]');
+    spans.forEach(s => {
+      s._original = s.textContent;
+      s.textContent = document.body.classList.contains('pt') ? 'Copiado' : 'Copiado';
+    });
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      spans.forEach(s => { s.textContent = s._original; });
+    }, 2000);
+  });
+}
+
+function setLang(lang) {
+  if (lang === 'pt') {
+    document.body.classList.add('pt');
+  } else {
+    document.body.classList.remove('pt');
+  }
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.set === lang);
+  });
+}
+
+function showTrip(id, btn) {
+  document.querySelectorAll('.trip-panels > div').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.trip-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('trip-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
