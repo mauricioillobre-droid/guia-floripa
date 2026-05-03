@@ -1031,8 +1031,16 @@
   }
 
   @media (max-width: 600px) {
-    .wa-float-label { display: inline; }
-    .wa-float { bottom: 20px; right: 16px; }
+    .wa-float-label { display: none; }
+    .wa-float {
+      width: 56px;
+      height: 56px;
+      bottom: 18px;
+      right: 16px;
+      justify-content: center;
+      padding: 0;
+      border-radius: 50%;
+    }
   }
 
   @keyframes floatIn {
@@ -1047,14 +1055,69 @@
     .rain-section { padding: 36px 20px; border-radius: 0; }
     section { padding: 56px 16px; }
     .section-header { margin-bottom: 34px; }
-    .hero h1 { font-size: clamp(40px, 13vw, 58px); }
+    .hero {
+      min-height: auto;
+      padding: 92px 18px 96px;
+      justify-content: flex-start;
+    }
+    .hero::before { height: 64px; }
+    .hero-tag {
+      font-size: 10px;
+      letter-spacing: 1.8px;
+      margin-bottom: 18px;
+      padding: 5px 16px;
+    }
+    .hero h1 {
+      font-size: clamp(38px, 12vw, 48px);
+      line-height: 1.08;
+      margin-bottom: 18px;
+      max-width: 340px;
+    }
+    .hero-sub {
+      font-size: 11px;
+      letter-spacing: 2.4px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.58;
+      margin-bottom: 18px;
+      max-width: 330px;
+    }
+    .hero-micro {
+      font-size: 13px;
+      line-height: 1.55;
+      margin-bottom: 28px;
+      max-width: 315px;
+    }
+    .hero-ctas {
+      width: 100%;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .ig-btn {
+      width: 100%;
+      max-width: 330px;
+      min-height: 58px;
+      padding: 14px 22px;
+      justify-content: center;
+      font-size: 15px;
+    }
+    .hero-cta-secondary {
+      display: block;
+      max-width: 300px;
+      color: rgba(255,255,255,0.68);
+      font-size: 13px;
+      line-height: 1.45;
+    }
     .section-header h2 { font-size: clamp(28px, 9vw, 38px); }
     .about-section { padding-top: 58px; padding-bottom: 54px; }
     .about-wrap { grid-template-columns: 1fr; gap: 28px; }
     .about-photo { max-width: 280px; margin: 0 auto; }
-    .section-intro, .hero-desc, .cta-section p { line-height: 1.65; }
-    .hero-ctas { width: 100%; }
-    .ig-btn, .cta-btn-solid, .cta-btn-outline { width: 100%; justify-content: center; }
+    .section-intro, .cta-section p { line-height: 1.65; }
+    .cta-btn-solid, .cta-btn-outline { width: 100%; justify-content: center; }
     .trip-panels > div.active { grid-template-columns: 1fr; }
   }
   /* HIDDEN LANG */
