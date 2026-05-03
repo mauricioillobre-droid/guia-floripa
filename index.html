@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Floripa por Mauri</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --deep-blue: #0D2B36;
@@ -12,21 +12,37 @@
     --soft-green: #6E8B74;
     --sand: #E6D3A3;
     --bg-light: #F7F5F2;
-    --text-main: #1E1E1E;
-    --text-muted: #6B7280;
+    --text-main: #263238;
+    --text-muted: #5f6b73;
     --white: #ffffff;
     --accent-sand: #E6D3A3;
+    --section-y: 60px;
+    --section-x: 24px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     background: var(--bg-light);
     color: var(--text-main);
+    font-size: 16px;
+    line-height: 1.65;
+    font-weight: 400;
     overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
+
+  h1, h2, h3, h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+
+  p { line-height: 1.65; }
 
   /* LANGUAGE SWITCHER */
   .lang-bar {
@@ -48,7 +64,7 @@
     color: rgba(255,255,255,0.55);
     padding: 5px 14px;
     border-radius: 20px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 1px;
@@ -110,19 +126,19 @@
   }
 
   .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(52px, 10vw, 96px);
-    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(44px, 8vw, 78px);
+    font-weight: 700;
     color: white;
-    line-height: 1;
-    margin-bottom: 10px;
+    line-height: 1.05;
+    margin-bottom: 14px;
     animation: fadeUp 0.8s ease 0.2s forwards;
     opacity: 0;
   }
 
   .hero h1 span {
     color: var(--sand);
-    font-style: italic;
+    font-style: normal;
   }
 
   .hero-sub {
@@ -139,7 +155,7 @@
     max-width: 500px;
     color: rgba(255,255,255,0.75);
     font-size: 16px;
-    line-height: 1.8;
+    line-height: 1.65;
     margin-bottom: 20px;
     animation: fadeUp 0.8s ease 0.5s forwards;
     opacity: 0;
@@ -242,13 +258,13 @@
 
   /* SECTIONS */
   section {
-    padding: 40px 20px;
+    padding: var(--section-y) var(--section-x);
     max-width: 1100px;
     margin: 0 auto;
   }
 
   .section-header {
-    margin-bottom: 52px;
+    margin-bottom: 38px;
   }
 
   .section-tag {
@@ -262,11 +278,11 @@
   }
 
   .section-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 5vw, 52px);
-    font-weight: 900;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(30px, 4.5vw, 48px);
+    font-weight: 700;
     color: var(--deep-blue);
-    line-height: 1.1;
+    line-height: 1.16;
   }
 
   .section-header h2 em {
@@ -277,7 +293,7 @@
   .section-intro {
     color: var(--text-muted);
     font-size: 16px;
-    line-height: 1.75;
+    line-height: 1.7;
     max-width: 560px;
     margin-top: 14px;
   }
@@ -292,10 +308,77 @@
     opacity: 0.4;
   }
 
+  /* ABOUT */
+  .about-section {
+    padding-top: var(--section-y);
+    padding-bottom: var(--section-y);
+  }
+
+  .about-wrap {
+    display: grid;
+    grid-template-columns: minmax(220px, 340px) minmax(0, 1fr);
+    gap: clamp(32px, 6vw, 72px);
+    align-items: center;
+  }
+
+  .about-photo {
+    aspect-ratio: 4 / 5;
+    width: 100%;
+    max-width: 340px;
+    border-radius: 18px;
+    background:
+      linear-gradient(145deg, rgba(13,43,54,0.08), rgba(230,211,163,0.24)),
+      var(--white);
+    border: 1px solid rgba(13,43,54,0.08);
+    box-shadow: 0 18px 42px rgba(13,43,54,0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+
+  .about-photo:empty::after {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border: 1px dashed rgba(13,43,54,0.18);
+    border-radius: 12px;
+  }
+
+  .about-content {
+    max-width: 650px;
+  }
+
+  .about-content h2 {
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 700;
+    color: var(--deep-blue);
+    margin-bottom: 20px;
+    line-height: 1.16;
+  }
+
+  .about-content p {
+    color: var(--text-muted);
+    font-size: clamp(15px, 1.6vw, 17px);
+    line-height: 1.72;
+    margin-bottom: 16px;
+  }
+
+  .about-content p:first-of-type {
+    color: var(--text-main);
+    font-weight: 500;
+  }
+
   /* ---- QUICK GUIDE SECTION (NEW) ---- */
   .quick-guide {
     background: var(--deep-blue);
-    padding: 72px 24px;
+    padding: var(--section-y) var(--section-x);
   }
 
   .quick-guide-inner {
@@ -328,7 +411,7 @@
     letter-spacing: 0.3px;
     cursor: pointer;
     transition: all 0.25s;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
 
   .trip-tab.active,
@@ -359,7 +442,7 @@
   .trip-item:hover { background: rgba(255,255,255,0.1); }
 
   .trip-item-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 13px;
     color: var(--sand);
     opacity: 0.7;
@@ -368,7 +451,7 @@
   }
 
   .trip-item h4 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 18px;
     color: white;
     margin-bottom: 6px;
@@ -450,13 +533,33 @@
 
   /* BEACH CARDS */
   .beach-group {
-    margin-bottom: 52px;
+    margin-bottom: 38px;
+  }
+
+  .section-band {
+    padding: 0;
+  }
+
+  .section-band-warm {
+    background: linear-gradient(180deg, var(--bg-light) 0%, #f0ece5 100%);
+  }
+
+  .section-band-cool {
+    background: linear-gradient(180deg, var(--bg-light) 0%, #eef2f5 100%);
+  }
+
+  .section-band-green {
+    background: linear-gradient(180deg, var(--bg-light) 0%, #edf2ee 100%);
+  }
+
+  .rain-wrap {
+    padding: 0 0 var(--section-y);
   }
 
   .beach-group-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 21px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--deep-blue);
     margin-bottom: 24px;
     padding-bottom: 12px;
@@ -539,9 +642,9 @@
   }
 
   .card-body h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 19px;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--deep-blue);
     margin-bottom: 6px;
   }
@@ -650,7 +753,7 @@
   transform: scale(1.05);
 }
   .sun-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 19px;
     margin-bottom: 6px;
     color: var(--deep-blue);
@@ -691,7 +794,7 @@
   .resto-card:hover { transform: translateY(-3px); }
 
   .resto-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 19px;
     color: var(--deep-blue);
     margin-bottom: 4px;
@@ -753,7 +856,7 @@
   .rain-card:hover { background: rgba(255,255,255,0.09); }
 
   .rain-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 19px;
     color: white;
     margin-bottom: 6px;
@@ -791,7 +894,7 @@
   .trail-card:hover { transform: translateY(-3px); }
 
   .trail-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 18px;
     color: var(--deep-blue);
     margin-bottom: 8px;
@@ -817,16 +920,17 @@
   /* INSTAGRAM CTA */
   .cta-section {
     background: var(--deep-blue);
-    padding: 90px 24px;
+    padding: 72px 24px;
     text-align: center;
   }
 
   .cta-section h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 6vw, 56px);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(30px, 5vw, 50px);
+    font-weight: 700;
     color: white;
     margin-bottom: 16px;
-    line-height: 1.1;
+    line-height: 1.16;
   }
 
   .cta-section h2 em { color: var(--sand); font-style: italic; }
@@ -898,7 +1002,7 @@
     text-align: center;
     padding: 36px 24px;
     font-size: 13px;
-    line-height: 1.8;
+    line-height: 1.65;
   }
 
   footer a { color: var(--sand); text-decoration: none; opacity: 0.7; }
@@ -963,12 +1067,19 @@
     nav { top: 40px; gap: 5px; padding: 14px; }
     nav a { font-size: 10px; padding: 6px 10px; }
     .rain-section { padding: 36px 20px; border-radius: 0; }
-    section { padding: 56px 16px; }
+    :root { --section-y: 50px; --section-x: 16px; }
+    section { padding: var(--section-y) var(--section-x); }
+    .section-header { margin-bottom: 34px; }
+    .hero h1 { font-size: clamp(40px, 13vw, 58px); }
+    .section-header h2 { font-size: clamp(28px, 9vw, 38px); }
+    .about-section { padding-top: 58px; padding-bottom: 54px; }
+    .about-wrap { grid-template-columns: 1fr; gap: 28px; }
+    .about-photo { max-width: 280px; margin: 0 auto; }
+    .section-intro, .hero-desc, .cta-section p { line-height: 1.65; }
     .hero-ctas { width: 100%; }
     .ig-btn, .cta-btn-solid, .cta-btn-outline { width: 100%; justify-content: center; }
     .trip-panels > div.active { grid-template-columns: 1fr; }
   }
-
   /* HIDDEN LANG */
   [data-lang="pt"] { display: none; }
   body.pt [data-lang="es"] { display: none; }
@@ -1031,6 +1142,41 @@
     </span>
   </div>
 </div>
+
+<!-- QUIEN SOY -->
+<section class="about-section" id="quien-soy">
+  <div class="about-wrap">
+    <div class="about-photo">
+      <img src="images/Portada.jpg" alt="Foto de Mauri">
+    </div>
+    <div class="about-content">
+      <span class="section-tag">
+        <span data-lang="es">✦ Quién soy</span>
+        <span data-lang="pt">✦ Quem sou</span>
+      </span>
+      <h2>
+        <span data-lang="es">Soy Mauri.</span>
+        <span data-lang="pt">Sou o Mauri.</span>
+      </h2>
+      <p>
+        <span data-lang="es">Soy Mauri. Trabajo en hotelería mientras desarrollo proyectos digitales enfocados en automatización y generación de ingresos.</span>
+        <span data-lang="pt">Sou o Mauri. Trabalho com hotelaria enquanto desenvolvo projetos digitais focados em automação e geração de renda.</span>
+      </p>
+      <p>
+        <span data-lang="es">Me considero una persona en constante crecimiento, con foco en aprender, mejorar y construir una mejor versión de mí mismo, tanto en lo profesional como en lo personal.</span>
+        <span data-lang="pt">Me considero uma pessoa em constante crescimento, com foco em aprender, melhorar e construir uma versão melhor de mim mesmo, tanto no profissional quanto no pessoal.</span>
+      </p>
+      <p>
+        <span data-lang="es">En mi día a día busco equilibrio: entreno, corro, cuido mis hábitos y trato de vivir con intención, valorando el proceso más que los resultados inmediatos.</span>
+        <span data-lang="pt">No meu dia a dia busco equilíbrio: treino, corro, cuido dos meus hábitos e tento viver com intenção, valorizando o processo mais do que os resultados imediatos.</span>
+      </p>
+      <p>
+        <span data-lang="es">Creo en hacer las cosas simples, sostener la disciplina y avanzar paso a paso. Hoy estoy enfocado en construir independencia, generar mis propios ingresos y diseñar una vida más alineada a mis valores.</span>
+        <span data-lang="pt">Acredito em fazer as coisas de forma simples, sustentar a disciplina e avançar passo a passo. Hoje estou focado em construir independência, gerar minha própria renda e desenhar uma vida mais alinhada aos meus valores.</span>
+      </p>
+    </div>
+  </div>
+</section>
 
 <!-- NAV -->
 <nav>
@@ -1436,7 +1582,7 @@
 </div>
 
 <!-- ===== SOL ===== -->
-<div style="background: linear-gradient(180deg, var(--bg-light) 0%, #f0ece5 100%); padding: 20px 0;">
+<div class="section-band section-band-warm">
 <section id="sol">
   <div class="section-header">
     <span class="section-tag">
@@ -1655,7 +1801,7 @@
 </section>
 
 <!-- ===== BARES & SALIDAS ===== -->
-<div style="background: linear-gradient(180deg, var(--bg-light) 0%, #eef2f5 100%); padding: 20px 0;">
+<div class="section-band section-band-cool">
 <section id="bares">
   <div class="section-header">
     <span class="section-tag">
@@ -1750,7 +1896,7 @@
 </div>
 
 <!-- ===== DÍA DE LLUVIA ===== -->
-<div style="padding: 0 0 80px;">
+<div class="rain-wrap">
 <div class="rain-section">
   <div id="lluvia" class="section-header">
     <span class="section-tag">
@@ -1858,7 +2004,7 @@
 </section>
 
 <!-- ===== TRILHAS ===== -->
-<div style="background: linear-gradient(180deg, var(--bg-light) 0%, #edf2ee 100%); padding: 20px 0;">
+<div class="section-band section-band-green">
 <section id="trilhas">
   <div class="section-header">
     <span class="section-tag">
@@ -1936,7 +2082,7 @@
 </div>
 
 <!-- ===== DONACIÓN ===== -->
-<section id="donacion" style="max-width:1100px; margin:0 auto; padding:80px 24px;">
+<section id="donacion" style="max-width:1100px; margin:0 auto; padding:var(--section-y) var(--section-x);">
   <div class="section-header">
     <span class="section-tag">
       <span data-lang="es">✦ Apoyá el proyecto</span>
@@ -1963,7 +2109,7 @@
         <span data-lang="es">Chave Pix (CPF):</span>
         <span data-lang="pt">Chave Pix (CPF):</span>
         <br>
-        <span style="font-family:'Playfair Display',serif; font-size:17px; color:var(--deep-blue); font-weight:700; letter-spacing:0.5px;">12772568105</span>
+        <span style="font-family:'Inter',sans-serif; font-size:17px; color:var(--deep-blue); font-weight:700; letter-spacing:0.5px;">12772568105</span>
       </p>
       <button onclick="copyText('12772568105', this)" class="copy-btn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
@@ -1980,7 +2126,7 @@
         <span data-lang="es">Alias:</span>
         <span data-lang="pt">Alias:</span>
         <br>
-        <span style="font-family:'Playfair Display',serif; font-size:17px; color:var(--deep-blue); font-weight:700; letter-spacing:0.5px;">maurillobre.astro</span>
+        <span style="font-family:'Inter',sans-serif; font-size:17px; color:var(--deep-blue); font-weight:700; letter-spacing:0.5px;">maurillobre.astro</span>
       </p>
       <button onclick="copyText('maurillobre.astro', this)" class="copy-btn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
@@ -2007,7 +2153,7 @@
     border: 1.5px solid rgba(31,92,115,0.3);
     padding: 7px 16px;
     border-radius: 20px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 12px;
     font-weight: 500;
     cursor: pointer;
