@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guía de viaje personal de Florianópolis por Mauri — playas, restaurantes, bares y más">
+  <title>Floripa por Mauri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles-new.css">
+</head>
+<body>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/5548999999999" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">Floripa por Mauri</a>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Cambiar idioma">
+          <span class="lang-track">
+            <span class="lang-opt">ES</span>
+            <span class="lang-opt">PT</span>
+          </span>
+        </button>
+        <a href="https://wa.me/5548999999999" class="nav-wa" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          <span data-es="Escribime" data-pt="Me escreve">Escribime</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 1. Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="hero-word" style="--d:0">Floripa</span>
+        <span class="hero-word hero-word--accent" style="--d:1">
+          <span data-es="por Mauri" data-pt="por Mauri">por Mauri</span>
+        </span>
+      </h1>
+      <p class="hero-subtitle" data-es="Hola, soy Mauri. Vivo en Floripa y todos los días ayudo a viajeros a decidir qué hacer en la isla. Esta guía reúne mis lugares favoritos y planes simples para aprovechar mejor tu viaje." data-pt="Olá, sou Mauri. Moro em Floripa e todos os dias ajudo viajantes a decidir o que fazer na ilha. Este guia reúne meus lugares favoritos e planos simples para aproveitar melhor sua viagem.">Hola, soy Mauri. Vivo en Floripa y todos los días ayudo a viajeros a decidir qué hacer en la isla. Esta guía reúne mis lugares favoritos y planes simples para aprovechar mejor tu viaje.</p>
+      <p class="hero-tag" data-es="✦ Lugares que conozco, que me gustaron y recomiendo porque valen la pena" data-pt="✦ Lugares que conheço, que gostei e recomendo porque valem a pena">✦ Lugares que conozco, que me gustaron y recomiendo porque valen la pena</p>
+    </div>
+  </section>
+
+  <!-- 2. Intro -->
+  <section class="section-pad" id="intro">
+    <div class="container">
+      <div class="intro-grid reveal">
+        <div class="intro-text reveal">
+          <h2 class="section-title" data-es="Hola, soy Mauri" data-pt="Olá, sou Mauri">Hola, soy Mauri</h2>
+          <div class="section-line"></div>
+          <p data-es="Soy Mauri. Trabajo en hotelería mientras desarrollo proyectos digitales enfocados en automatización y generación de ingresos." data-pt="Sou Mauri. Trabalho na hotelaria enquanto desenvolvo projetos digitais focados em automação e geração de renda.">Soy Mauri. Trabajo en hotelería mientras desarrollo proyectos digitales enfocados en automatización y generación de ingresos.</p>
+          <p data-es="Me considero una persona en constante crecimiento, con foco en aprender, mejorar y construir una mejor versión de mí mismo, tanto en lo profesional como en lo personal." data-pt="Me considero uma pessoa em constante crescimento, com foco em aprender, melhorar e construir uma versão melhor de mim mesmo, tanto no profissional quanto no pessoal.">Me considero una persona en constante crecimiento, con foco en aprender, mejorar y construir una mejor versión de mí mismo, tanto en lo profesional como en lo personal.</p>
+          <p data-es="En mi día a día busco equilibrio: entreno, corro, cuido mis hábitos y trato de vivir con intención, valorando el proceso más que los resultados inmediatos." data-pt="No meu dia a dia busco equilíbrio: treino, corro, cuido dos meus hábitos e tento viver com intenção, valorizando o processo mais do que os resultados imediatos.">En mi día a día busco equilibrio: entreno, corro, cuido mis hábitos y trato de vivir con intención, valorando el proceso más que los resultados inmediatos.</p>
+          <p data-es="Creo en hacer las cosas simples, sostener la disciplina y avanzar paso a paso. Hoy estoy enfocado en construir independencia, generar mis propios ingresos y diseñar una vida más alineada a mis valores." data-pt="Acredito em fazer as coisas de forma simples, manter a disciplina e avançar passo a passo. Hoje estou focado em construir independência, gerar minha própria renda e desenhar uma vida mais alinhada aos meus valores.">Creo en hacer las cosas simples, sostener la disciplina y avanzar paso a paso. Hoy estoy enfocado en construir independencia, generar mis propios ingresos y diseñar una vida más alineada a mis valores.</p>
+        </div>
+        <div class="intro-photo reveal" style="--delay: 0.18s">
+          <img src="./images/Portada.jpg" alt="Mauri en Florianópolis" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Guía rápida -->
+  <section class="section-pad bg-light" id="guia">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title" data-es="Guía rápida" data-pt="Guia rápido">Guía rápida</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="tabs reveal" style="--delay: 0.15s">
+        <div class="tabs-nav" role="tablist">
+          <button class="tab-btn active ripple-host" role="tab" aria-selected="true" data-tab="fewdays" data-es="Pocos días" data-pt="Poucos dias">Pocos días</button>
+          <button class="tab-btn ripple-host" role="tab" aria-selected="false" data-tab="relax" data-es="Relax" data-pt="Relax">Relax</button>
+          <button class="tab-btn ripple-host" role="tab" aria-selected="false" data-tab="active" data-es="Activo" data-pt="Ativo">Activo</button>
+        </div>
+        <div class="tab-content active" id="fewdays" role="tabpanel">
+          <p data-es="Si tenés solo 3 o 4 días, empezá por Praia Mole y Joaquina. Despertate temprano para ver el amanecer en Santinho, recorré la Lagoa da Conceição al atardecer y terminá con una cena en la parte histórica. Tres días bien aprovechados valen más que una semana sin plan." data-pt="Se você tem só 3 ou 4 dias, comece pela Praia Mole e Joaquina. Acorde cedo para ver o amanhecer no Santinho, percorra a Lagoa da Conceição ao entardecer e termine com um jantar no centro histórico. Três dias bem aproveitados valem mais do que uma semana sem plano.">Si tenés solo 3 o 4 días, empezá por Praia Mole y Joaquina. Despertate temprano para ver el amanecer en Santinho, recorré la Lagoa da Conceição al atardecer y terminá con una cena en la parte histórica. Tres días bien aprovechados valen más que una semana sin plan.</p>
+        </div>
+        <div class="tab-content" id="relax" role="tabpanel">
+          <p data-es="La Floripa del relax está en el norte: Ponta das Canas, Cachoeira do Bom Jesus y Santo Antônio de Lisboa. Playas casi vacías entre semana, agua calma, chiringuitos simples. Llevá un libro y dejá el teléfono en la bolsa." data-pt="A Floripa do relax está no norte: Ponta das Canas, Cachoeira do Bom Jesus e Santo Antônio de Lisboa. Praias quase vazias nos dias de semana, água calma, quiosques simples. Leva um livro e deixa o celular na bolsa.">La Floripa del relax está en el norte: Ponta das Canas, Cachoeira do Bom Jesus y Santo Antônio de Lisboa. Playas casi vacías entre semana, agua calma, chiringuitos simples. Llevá un libro y dejá el teléfono en la bolsa.</p>
+        </div>
+        <div class="tab-content" id="active" role="tabpanel">
+          <p data-es="Las dunas de Joaquina son el spot para sandboard. Praia Mole para surfear (hay escuelas), el Morro das Pedras para senderismo con vista panorámica y la Lagoa para windsurf y kitesurf. Floripa tiene nivel de adrenalina para todos." data-pt="As dunas da Joaquina são o spot para sandboard. Praia Mole para surfar (há escolas), o Morro das Pedras para trilhas com vista panorâmica e a Lagoa para windsurf e kitesurf. Floripa tem um nível de adrenalina para todos.">Las dunas de Joaquina son el spot para sandboard. Praia Mole para surfear (hay escuelas), el Morro das Pedras para senderismo con vista panorámica y la Lagoa para windsurf y kitesurf. Floripa tiene nivel de adrenalina para todos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Mejores playas -->
+  <section class="section-pad" id="playas">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title" data-es="Mejores playas" data-pt="Melhores praias">Mejores playas</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle" data-es="Floripa tiene más de 40 playas. Acá te cuento mis favoritas — con y sin olas — para que no pierdas tiempo eligiendo. Si tenés pocos días, empezá por las marcadas con Top." data-pt="Floripa tem mais de 40 praias. Aqui te conto minhas favoritas — com e sem ondas — para que você não perca tempo escolhendo. Se tiver poucos dias, comece pelas marcadas com Top.">Floripa tiene más de 40 playas. Acá te cuento mis favoritas — con y sin olas — para que no pierdas tiempo eligiendo. Si tenés pocos días, empezá por las marcadas con Top.</p>
+      </div>
+      <div class="carousel-outer reveal">
+        <div class="carousel-track" id="beachTrack">
+
+          <div class="beach-card">
+            <div class="beach-card-img">
+              <img src="./images/santinho.JPEG" alt="Praia do Santinho" loading="lazy">
+              <span class="beach-badge" data-es="Favorita" data-pt="Favorita">Favorita</span>
+            </div>
+            <div class="beach-card-body">
+              <h3>Praia do Santinho</h3>
+              <p data-es="Agua cristalina, arena blanca y poca gente. Ideal para amaneceres mágicos. Sin infraestructura turística, y eso es exactamente lo que la hace especial." data-pt="Água cristalina, areia branca e pouca gente. Ideal para amanheceres mágicos.">Agua cristalina, arena blanca y poca gente. Ideal para amaneceres mágicos.</p>
+            </div>
+          </div>
+
+          <div class="beach-card">
+            <div class="beach-card-img">
+              <img src="./images/Praia%20Mole.JPEG" alt="Praia Mole" loading="lazy">
+              <span class="beach-badge" data-es="Surf" data-pt="Surf">Surf</span>
+            </div>
+            <div class="beach-card-body">
+              <h3>Praia Mole</h3>
+              <p data-es="La playa más animada de Floripa. Bares con música en vivo, olas perfectas para surf y una energía que no encontrás en ningún otro lado." data-pt="A praia mais animada de Floripa. Ondas perfeitas para surf e energia única.">La playa más animada. Bares en vivo y olas perfectas para surf.</p>
+            </div>
+          </div>
+
+          <div class="beach-card">
+            <div class="beach-card-img">
+              <img src="./images/joaquina.JPEG" alt="Joaquina" loading="lazy">
+              <span class="beach-badge" data-es="Dunas" data-pt="Dunas">Dunas</span>
+            </div>
+            <div class="beach-card-body">
+              <h3>Joaquina</h3>
+              <p data-es="Las dunas más grandes de Floripa y olas para surf avanzado. El sandboard vale la pena." data-pt="As dunas mais grandes de Floripa e ondas para surf avançado. O sandboard vale a pena.">Las dunas más grandes de Floripa. El sandboard vale la pena.</p>
+            </div>
+          </div>
+
+          <div class="beach-card">
+            <div class="beach-card-img">
+              <img src="./images/pontadascanas.JPEG" alt="Ponta das Canas" loading="lazy">
+            </div>
+            <div class="beach-card-body">
+              <h3>Ponta das Canas</h3>
+              <p data-es="Playa familiar, agua muy calma, perfecta para nadar. La zona norte tiene menos turismo y más tranquilidad." data-pt="Praia familiar, água calma, perfeita para nadar. Menos turismo e mais tranquilidade.">Playa familiar y agua calma. La zona norte en su mejor versión.</p>
+            </div>
+          </div>
+
+          <div class="beach-card">
+            <div class="beach-card-img">
+              <img src="./images/cachoeiradebomjesus.JPEG" alt="Cachoeira do Bom Jesus" loading="lazy">
+            </div>
+            <div class="beach-card-body">
+              <h3>Cachoeira do Bom Jesus</h3>
+              <p data-es="La rareza de Floripa: un río de agua dulce desemboca en el mar. Podés bañarte en los dos en segundos." data-pt="A raridade de Floripa: rio de água doce desemboca no mar.">La rareza de Floripa: río de agua dulce que desemboca en el mar.</p>
+            </div>
+          </div>
+
+          <div class="beach-card">
+            <div class="beach-card-img">
+              <img src="./images/pontaldedaniela.JPEG" alt="Ponta de Daniela" loading="lazy">
+            </div>
+            <div class="beach-card-body">
+              <h3>Ponta de Daniela</h3>
+              <p data-es="La mejor playa del norte para ver el sol caer. Agua calma en la bahía y colores únicos al atardecer." data-pt="A melhor praia do norte para ver o sol se pôr. Água calma e cores únicas.">La mejor del norte para ver el sol caer. Colores únicos al atardecer.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="beachPrev" aria-label="Anterior">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="carousel-btn" id="beachNext" aria-label="Siguiente">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Trilhas -->
+  <section class="section-pad bg-light" id="trilhas">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title" data-es="Trilhas imperdibles" data-pt="Trilhas imperdíveis">Trilhas imperdibles</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle" data-es="Floripa no es solo playas — también tiene trilhas increíbles para todos los niveles. Acá las que yo hice y recomiendo con seguridad." data-pt="Floripa não é só praias — também tem trilhas incríveis para todos os níveis. Aqui as que eu fiz e recomendo com segurança.">Floripa no es solo playas — también tiene trilhas increíbles para todos los niveles. Acá las que yo hice y recomiendo con seguridad.</p>
+      </div>
+      <div class="trilha-list">
+
+        <div class="trilha-card reveal stagger" style="--i:0">
+          <div class="trilha-header">
+            <span class="trilha-badge trilha-badge--green" data-es="Fácil" data-pt="Fácil">Fácil</span>
+          </div>
+          <h3 class="trilha-name" data-es="Trilha Santinho → Ingleses" data-pt="Trilha Santinho → Ingleses">Trilha Santinho → Ingleses</h3>
+          <p class="trilha-desc" data-es="Cruza de Ingleses a Santinho con miradores al mar. Perfecta para arrancar en las trilhas de la isla. No se necesita experiencia previa." data-pt="Atravessa de Ingleses a Santinho com mirantes para o mar. Perfeita para começar nas trilhas da ilha. Não precisa de experiência prévia.">Cruza de Ingleses a Santinho con miradores al mar. Perfecta para arrancar en las trilhas de la isla. No se necesita experiencia previa.</p>
+          <a href="https://maps.google.com/?q=Trilha+Santinho+Ingleses+Florianopolis" target="_blank" rel="noopener" class="trilha-map">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span data-es="Ver en Google Maps" data-pt="Ver no Google Maps">Ver en Google Maps</span>
+          </a>
+        </div>
+
+        <div class="trilha-card reveal stagger" style="--i:1">
+          <div class="trilha-header">
+            <span class="trilha-badge trilha-badge--yellow" data-es="Media" data-pt="Média">Media</span>
+          </div>
+          <h3 class="trilha-name" data-es="Trilha de Gravatá" data-pt="Trilha de Gravatá">Trilha de Gravatá</h3>
+          <p class="trilha-desc" data-es="Dificultad media, con mirantes a la playa. Te lleva directo a Praia de Gravatá. Vale el esfuerzo — la recompensa es hermosa." data-pt="Dificuldade média, com mirantes para a praia. Leva diretamente à Praia de Gravatá. Vale o esforço — a recompensa é linda.">Dificultad media, con mirantes a la playa. Te lleva directo a Praia de Gravatá. Vale el esfuerzo — la recompensa es hermosa.</p>
+          <a href="https://maps.google.com/?q=Trilha+Gravata+Florianopolis" target="_blank" rel="noopener" class="trilha-map">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span data-es="Ver en Google Maps" data-pt="Ver no Google Maps">Ver en Google Maps</span>
+          </a>
+        </div>
+
+        <div class="trilha-card reveal stagger" style="--i:2">
+          <div class="trilha-header">
+            <span class="trilha-badge trilha-badge--green" data-es="Muy fácil · 15 min" data-pt="Muito fácil · 15 min">Muy fácil · 15 min</span>
+          </div>
+          <h3 class="trilha-name" data-es="Piscinas Naturais de Barra da Lagoa" data-pt="Piscinas Naturais de Barra da Lagoa">Piscinas Naturais de Barra da Lagoa</h3>
+          <p class="trilha-desc" data-es="Mini trilha de 15 minutos que lleva a las piscinas naturales. También podés quedarte para el atardecer. Increíble para cerrar el día." data-pt="Mini trilha de 15 minutos que leva às piscinas naturais. Também dá para ficar para o entardecer. Incrível para fechar o dia.">Mini trilha de 15 minutos que lleva a las piscinas naturales. También podés quedarte para el atardecer. Increíble para cerrar el día.</p>
+          <a href="https://maps.google.com/?q=Piscinas+Naturais+Barra+da+Lagoa+Florianopolis" target="_blank" rel="noopener" class="trilha-map">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span data-es="Ver en Google Maps" data-pt="Ver no Google Maps">Ver en Google Maps</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Amaneceres y atardeceres -->
+  <section id="amaneceres">
+    <div class="container">
+      <div class="reveal" style="padding: var(--section-v) 0 48px">
+        <h2 class="section-title" data-es="Amaneceres y atardeceres" data-pt="Amanheceres e entardeceres">Amaneceres y atardeceres</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle" data-es="Los mejores momentos de luz de la isla. Vale la pena madrugar." data-pt="Os melhores momentos de luz da ilha. Vale a pena acordar cedo.">Los mejores momentos de luz de la isla. Vale la pena madrugar.</p>
+      </div>
+    </div>
+    <div class="sunrise-bento reveal">
+
+      <!-- Row 1: Amanecer Santinho — caption negro -->
+      <div class="sunrise-bento-row">
+        <div class="sunrise-bento-img">
+          <img src="./images/maurisantinhoamanecer.jpg" alt="Amanecer en Santinho" loading="lazy">
+        </div>
+        <div class="sunrise-bento-caption">
+          <h3 data-es="Amanecer en Santinho" data-pt="Amanhecer no Santinho">Amanecer en Santinho</h3>
+          <p data-es="Llegar antes de que salga el sol vale el esfuerzo. El cielo cambia de negro a naranja en minutos. Es de esas experiencias que no te olvidás nunca." data-pt="Chegar antes do sol nascer vale o esforço. O céu muda de negro para laranja em minutos. É uma daquelas experiências que você nunca esquece.">Llegar antes de que salga el sol vale el esfuerzo. El cielo cambia de negro a naranja en minutos. Es de esas experiencias que no te olvidás nunca.</p>
+        </div>
+      </div>
+
+      <!-- Row 2: Atardecer Santo Antonio — caption blanco -->
+      <div class="sunrise-bento-row sunrise-bento-row--reverse">
+        <div class="sunrise-bento-img">
+          <img src="./images/stoantonio2.JPEG" alt="Atardecer en Santo Antônio de Lisboa" loading="lazy">
+        </div>
+        <div class="sunrise-bento-caption sunrise-bento-caption--white">
+          <h3 data-es="Atardecer en Santo Antônio" data-pt="Entardecer em Santo Antônio">Atardecer en Santo Antônio</h3>
+          <p data-es="El pueblo más pintoresco de la isla. El sol cae sobre el mar y tiñe todo de dorado. Llevá tu cámara y quedáte a cenar en el pueblo." data-pt="O bairro mais pitoresco da ilha. O sol cai sobre o mar e tinge tudo de dourado. Leve sua câmera e fique para jantar no bairro.">El pueblo más pintoresco de la isla. El sol cae sobre el mar y tiñe todo de dorado. Llevá tu cámara y quedáte a cenar en el pueblo.</p>
+        </div>
+      </div>
+
+      <!-- Row 3: Atardecer Praia Forte — caption celeste clarito -->
+      <div class="sunrise-bento-row">
+        <div class="sunrise-bento-img">
+          <img src="./images/praiaforteatardecer.JPEG" alt="Atardecer en Praia Forte" loading="lazy">
+        </div>
+        <div class="sunrise-bento-caption sunrise-bento-caption--blue">
+          <h3 data-es="Atardecer en Praia Forte" data-pt="Entardecer na Praia Forte">Atardecer en Praia Forte</h3>
+          <p data-es="El mejor atardecer del norte de la isla. El agua queda quieta y el reflejo es perfecto. Quedarse hasta el último rayo vale cada minuto." data-pt="O melhor entardecer do norte da ilha. A água fica quieta e o reflexo é perfeito. Ficar até o último raio vale cada minuto.">El mejor atardecer del norte de la isla. El agua queda quieta y el reflejo es perfecto. Quedarse hasta el último rayo vale cada minuto.</p>
+        </div>
+      </div>
+
+      <!-- Row 4: Gravata desde las alturas — caption negro -->
+      <div class="sunrise-bento-row sunrise-bento-row--reverse">
+        <div class="sunrise-bento-img">
+          <img src="./images/gravata2.JPEG" alt="Gravata desde las alturas" loading="lazy">
+        </div>
+        <div class="sunrise-bento-caption">
+          <h3 data-es="Gravata desde las alturas" data-pt="Gravata das alturas">Gravata desde las alturas</h3>
+          <p data-es="Una vista privilegiada para el último destello del día. Desde acá arriba ves la playa, el mar y el horizonte todo junto. Una de las vistas más impresionantes de toda la isla." data-pt="Uma vista privilegiada para o último brilho do dia. Daqui de cima você vê a praia, o mar e o horizonte juntos. Uma das vistas mais impressionantes de toda a ilha.">Una vista privilegiada para el último destello del día. Desde acá arriba ves la playa, el mar y el horizonte todo junto.</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="padding-bottom: var(--section-v)"></div>
+  </section>
+
+  <!-- 8. Restaurantes -->
+  <section class="section-pad" id="restaurantes">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title" data-es="Restaurantes" data-pt="Restaurantes">Restaurantes</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Zona Ingleses -->
+      <div class="subsection-header reveal">
+        <h3 class="subsection-title" data-es="Zona Ingleses" data-pt="Zona Ingleses">Zona Ingleses</h3>
+      </div>
+      <div class="restaurant-list">
+        <div class="restaurant-item reveal stagger" style="--i:0">
+          <div class="restaurant-info">
+            <h3>Camarão Ingleses</h3>
+            <p data-es="El camarón de Floripa en su mejor versión. No vayas sin reserva en temporada alta." data-pt="O camarão de Floripa na sua melhor versão. Não vá sem reserva na alta temporada.">El camarón de Floripa en su mejor versión. No vayas sin reserva en temporada alta.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Camarao+Ingleses+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="restaurant-item reveal stagger" style="--i:1">
+          <div class="restaurant-info">
+            <h3>Paixão</h3>
+            <p data-es="Muy bueno, ambiente acogedor. Uno de los favoritos de la zona de Ingleses. Cocina local de calidad." data-pt="Muito bom, ambiente acolhedor. Um dos favoritos da zona de Ingleses. Culinária local de qualidade.">Muy bueno, ambiente acogedor. Uno de los favoritos de la zona. Cocina local de calidad.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Paixao+Restaurante+Ingleses+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="restaurant-item reveal stagger" style="--i:2">
+          <div class="restaurant-info">
+            <h3>Pizzeria Ravi Mari</h3>
+            <p data-es="Pizzas excelentes. Si tenés antojo de una buena pizza, esta es tu parada obligada en Ingleses." data-pt="Pizzas excelentes. Se você tiver vontade de uma boa pizza, esta é a sua parada obrigatória em Ingleses.">Pizzas excelentes. Si tenés antojo de una buena pizza, esta es tu parada obligada en Ingleses.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Pizzeria+Ravi+Mari+Ingleses+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Padarias & Cafés -->
+      <div class="subsection-header reveal">
+        <h3 class="subsection-title" data-es="Padarias y Cafés" data-pt="Padarias e Cafés">Padarias y Cafés</h3>
+      </div>
+      <div class="restaurant-list">
+        <div class="restaurant-item reveal stagger" style="--i:0">
+          <div class="restaurant-info">
+            <h3>Princesa da Ilha</h3>
+            <p data-es="Clásica de Floripa. Pão de queijo, café fresquito y un desayuno de los que no se olvidan." data-pt="Clássica de Floripa. Pão de queijo, café fresquinho e um café da manhã que não se esquece.">Clásica de Floripa. Pão de queijo, café fresquito y un desayuno de los que no se olvidan.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Princesa+da+Ilha+Padaria+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="restaurant-item reveal stagger" style="--i:1">
+          <div class="restaurant-info">
+            <h3>Doses e Salgados</h3>
+            <p data-es="Salgados increíbles y café de calidad. Para tomar algo rápido o quedarte a charlar un rato." data-pt="Salgados incríveis e café de qualidade. Para tomar algo rápido ou ficar conversando um tempo.">Salgados increíbles y café de calidad. Para tomar algo rápido o quedarte a charlar un rato.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Doses+e+Salgados+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Fuera de Ingleses -->
+      <div class="subsection-header reveal">
+        <h3 class="subsection-title" data-es="Fuera de Ingleses" data-pt="Fora de Ingleses">Fuera de Ingleses</h3>
+      </div>
+      <div class="restaurant-list">
+        <div class="restaurant-item reveal stagger" style="--i:0">
+          <div class="restaurant-info">
+            <h3>Ostradamus</h3>
+            <p data-es="Ostras fresquísimas directo del mar. La dirección más importante del norte de la isla." data-pt="Ostras fresquíssimas direto do mar. O endereço mais importante do norte da ilha.">Ostras fresquísimas directo del mar. La dirección más importante del norte.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Ostradamus+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="restaurant-item reveal stagger" style="--i:1">
+          <div class="restaurant-info">
+            <h3>Toca da Garoupa</h3>
+            <p data-es="Frutos de mar frescos a buen precio. Sin pretensiones, con todo el sabor de la isla." data-pt="Frutos do mar frescos a bom preço. Sem pretensão, com todo o sabor da ilha.">Frutos de mar frescos a buen precio. Sin pretensiones, con todo el sabor de la isla.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Toca+da+Garoupa+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="restaurant-item reveal stagger" style="--i:2">
+          <div class="restaurant-info">
+            <h3>La Pasta Gialla</h3>
+            <p data-es="Pasta italiana fresca, ideal para la noche. Ambiente íntimo en el corazón de la ciudad." data-pt="Massa italiana fresca, ideal para a noite. Ambiente íntimo no coração da cidade.">Pasta italiana fresca, ideal para la noche. Ambiente íntimo en el centro.</p>
+          </div>
+          <a href="https://maps.google.com/?q=La+Pasta+Gialla+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="restaurant-item reveal stagger" style="--i:3">
+          <div class="restaurant-info">
+            <h3>Zé Mané</h3>
+            <p data-es="Pescado frito como lo hacía la abuela. Un clásico de la isla que resiste el tiempo." data-pt="Peixe frito como a vovó fazia. Um clássico da ilha que resiste ao tempo.">Pescado frito como lo hacía la abuela. Un clásico que resiste el tiempo.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Ze+Mane+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="restaurant-item reveal stagger" style="--i:4">
+          <div class="restaurant-info">
+            <h3>Mercearia Velha</h3>
+            <p data-es="Comidinhas y vino en ambiente bohemio. El mejor lugar para una tarde larga en Santo Antônio." data-pt="Comidinhas e vinho em ambiente boêmio. O melhor lugar para uma tarde longa em Santo Antônio.">Comidinhas y vino en ambiente bohemio. El mejor para una tarde larga.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Mercearia+Velha+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="restaurant-item reveal stagger" style="--i:5">
+          <div class="restaurant-info">
+            <h3>Box 32</h3>
+            <p data-es="Hamburguesas artesanales en la Lagoa da Conceição. Informal, rico y siempre lleno." data-pt="Hambúrgueres artesanais na Lagoa da Conceição. Informal, gostoso e sempre cheio.">Hamburguesas artesanales en la Lagoa. Informal, rico y siempre lleno.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Box+32+Lagoa+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="restaurant-item reveal stagger" style="--i:6">
+          <div class="restaurant-info">
+            <h3>Armazem Vieira</h3>
+            <p data-es="Petiscos con vista al mar en Ribeirão da Ilha. El sitio más auténtico para comer ostras." data-pt="Petiscos com vista para o mar no Ribeirão da Ilha. O lugar mais autêntico para comer ostras.">Petiscos con vista al mar en Ribeirão da Ilha. El sitio más auténtico.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Armazem+Vieira+Florianopolis" target="_blank" rel="noopener" class="map-link" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. Bares -->
+  <section class="section-pad bg-dark" id="bares">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title section-title--light" data-es="Bares" data-pt="Bares">Bares</h2>
+        <div class="section-line section-line--gold"></div>
+      </div>
+
+      <!-- Principales -->
+      <div class="subsection-header subsection-header--dark reveal">
+        <h3 class="subsection-title subsection-title--light" data-es="Zona Ingleses y alrededores" data-pt="Zona Ingleses e arredores">Zona Ingleses y alrededores</h3>
+      </div>
+      <div class="bars-list">
+
+        <div class="bar-item reveal stagger" style="--i:0">
+          <span class="bar-number" data-target="1">1</span>
+          <div class="bar-info">
+            <h3>Amo Floripa Café Bar</h3>
+            <p data-es="Frente al Puente Hercílio Luz. Pagode en vivo, vista increíble y ambiente que se arma solo." data-pt="Em frente à Ponte Hercílio Luz. Pagode ao vivo, vista incrível e ambiente que se forma sozinho.">Frente al Puente Hercílio Luz. Pagode en vivo, vista increíble y ambiente que se arma solo.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Amo+Floripa+Cafe+Bar+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="bar-item reveal stagger" style="--i:1">
+          <span class="bar-number" data-target="2">2</span>
+          <div class="bar-info">
+            <h3>Bar do Noel</h3>
+            <p data-es="Samba en vivo, buena vibra y clima local. Simple, auténtico y con mucha energía." data-pt="Samba ao vivo, boa vibe e clima local. Simples, autêntico e com muita energia.">Samba en vivo, buena vibra y clima local. Simple, auténtico y con mucha energía.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Bar+do+Noel+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="bar-item reveal stagger" style="--i:2">
+          <span class="bar-number" data-target="3">3</span>
+          <div class="bar-info">
+            <h3>Barzin Bar</h3>
+            <p data-es="Más elegante, pagode en vivo y excelente ambiente. Buen lugar si querés algo con más producción." data-pt="Mais elegante, pagode ao vivo e excelente ambiente. Bom lugar se quiser algo com mais produção.">Más elegante, pagode en vivo y excelente ambiente. Para cuando querés algo con más producción.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Barzin+Bar+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="bar-item reveal stagger" style="--i:3">
+          <span class="bar-number" data-target="4">4</span>
+          <div class="bar-info">
+            <h3>Fucksa Bar</h3>
+            <p data-es="Muy lindo spot en Ingleses Norte. Buena opción si estás hospedado por la zona y no querés moverte tanto." data-pt="Lindo spot em Ingleses Norte. Boa opção se você está hospedado na região e não quer se mover muito.">Muy lindo spot en Ingleses Norte. Ideal si estás por la zona y no querés moverte tanto.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Fucksa+Bar+Ingleses+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="bar-item reveal stagger" style="--i:4">
+          <span class="bar-number" data-target="5">5</span>
+          <div class="bar-info">
+            <h3>Vila Futuro Ingleses</h3>
+            <p data-es="Buena comida, buena bebida y música en vivo. Plan completo para cenar, tomar algo y quedarse un rato más." data-pt="Boa comida, boa bebida e música ao vivo. Plano completo para jantar, tomar algo e ficar um pouco mais.">Buena comida, buena bebida y música en vivo. Plan completo para cenar, tomar algo y quedarse.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Vila+Futuro+Ingleses+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Fuera de Ingleses -->
+      <div class="subsection-header subsection-header--dark reveal">
+        <h3 class="subsection-title subsection-title--light" data-es="Fuera de Ingleses" data-pt="Fora de Ingleses">Fuera de Ingleses</h3>
+      </div>
+      <div class="bars-list">
+
+        <div class="bar-item reveal stagger" style="--i:0">
+          <span class="bar-number" data-target="1">1</span>
+          <div class="bar-info">
+            <h3>John Bull Pub</h3>
+            <p data-es="El clásico de la isla. Cerveza helada, ambiente relajado y buena onda garantizada." data-pt="O clássico da ilha. Cerveja gelada, ambiente relaxado e boa energia garantida.">El clásico de la isla. Cerveza helada, ambiente relajado y buena onda garantizada.</p>
+          </div>
+          <a href="https://maps.google.com/?q=John+Bull+Pub+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="bar-item reveal stagger" style="--i:1">
+          <span class="bar-number" data-target="2">2</span>
+          <div class="bar-info">
+            <h3>Bar do Arante</h3>
+            <p data-es="A la orilla del mar, con más de 30 años de historia. Las paredes hablan de Floripa." data-pt="À beira do mar, com mais de 30 anos de história. As paredes falam de Floripa.">A la orilla del mar, con más de 30 años de historia. Las paredes hablan de Floripa.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Bar+do+Arante+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="bar-item reveal stagger" style="--i:2">
+          <span class="bar-number" data-target="3">3</span>
+          <div class="bar-info">
+            <h3>Empório do Chocolate</h3>
+            <p data-es="Cócteles creativos en el centro histórico. Nombre engañoso: acá se viene a tomar bien." data-pt="Coquetéis criativos no centro histórico. Nome enganoso: aqui se vem para beber bem.">Cócteles creativos en el centro histórico. Nombre engañoso: acá se viene a tomar bien.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Emporio+do+Chocolate+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="bar-item reveal stagger" style="--i:3">
+          <span class="bar-number" data-target="4">4</span>
+          <div class="bar-info">
+            <h3>Calangute Beach Bar</h3>
+            <p data-es="Pies en la arena, música en vivo y caipirinha en mano. La experiencia playera más completa." data-pt="Pés na areia, música ao vivo e caipirinha na mão. A experiência praiana mais completa.">Pies en la arena, música en vivo y caipirinha en mano.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Calangute+Beach+Bar+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+        <div class="bar-item reveal stagger" style="--i:4">
+          <span class="bar-number" data-target="5">5</span>
+          <div class="bar-info">
+            <h3>Rancho de Canasvieiras</h3>
+            <p data-es="El bar playero más auténtico del norte. Sin filtros, con todo el sabor local que buscás." data-pt="O bar praiano mais autêntico do norte. Sem filtros, com todo o sabor local que você busca.">El bar playero más auténtico del norte. Sin filtros, con todo el sabor local.</p>
+          </div>
+          <a href="https://maps.google.com/?q=Rancho+Canasvieiras+Florianopolis" target="_blank" rel="noopener" class="map-link map-link--light" aria-label="Ver en mapa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Día de lluvia -->
+  <section class="section-pad bg-blue" id="lluvia">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title" data-es="Día de lluvia" data-pt="Dia de chuva">Día de lluvia</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle" data-es="Floripa bajo la lluvia también tiene lo suyo." data-pt="Floripa na chuva também tem seu charme.">Floripa bajo la lluvia también tiene lo suyo.</p>
+      </div>
+      <div class="rainy-grid">
+
+        <div class="rainy-card reveal stagger" style="--i:0">
+          <div class="rainy-num">01</div>
+          <h3 data-es="Mercado Público" data-pt="Mercado Público">Mercado Público</h3>
+          <p data-es="El corazón de la isla. Bares históricos, pescado fresco y una atmósfera única. Ideal para desayunar ostras con cerveza: algo que en Floripa es completamente normal." data-pt="O coração da ilha. Bares históricos, peixe fresco e uma atmosfera única. Ideal para tomar café da manhã com ostras e cerveja: algo que em Floripa é completamente normal.">El corazón de la isla. Bares históricos, pescado fresco y una atmósfera única.</p>
+        </div>
+
+        <div class="rainy-card reveal stagger" style="--i:1">
+          <div class="rainy-num">02</div>
+          <h3 data-es="Museu Histórico de SC" data-pt="Museu Histórico de SC">Museu Histórico de SC</h3>
+          <p data-es="El palacio colonial Cruz e Sousa alberga el museo histórico del estado. Arquitectura imponente, buen acervo y entrada gratuita." data-pt="O Palácio Cruz e Sousa abriga o museu histórico do estado. Arquitetura imponente, bom acervo e entrada gratuita.">El palacio colonial Cruz e Sousa. Arquitectura imponente y entrada gratuita.</p>
+        </div>
+
+        <div class="rainy-card reveal stagger" style="--i:2">
+          <div class="rainy-num">03</div>
+          <h3 data-es="Shopping Beira-Mar" data-pt="Shopping Beira-Mar">Shopping Beira-Mar</h3>
+          <p data-es="No es solo un shopping: tiene terrazas con vista a la Bahía Norte. Un buen café, una librería y el calor que la lluvia quitó." data-pt="Não é só um shopping: tem terraços com vista para a Baía Norte. Um bom café, uma livraria e o calor que a chuva tirou.">Terrazas con vista a la Bahía Norte. Un café y el calor que la lluvia quitó.</p>
+        </div>
+
+        <div class="rainy-card reveal stagger" style="--i:3">
+          <div class="rainy-num">04</div>
+          <h3 data-es="Villa Romana" data-pt="Villa Romana">Villa Romana</h3>
+          <p data-es="El más grande de Floripa. Tiendas ancla, restaurantes, cine. El clásico para un día de lluvia." data-pt="O maior de Floripa. Lojas âncora, restaurantes, cinema. O clássico para um dia de chuva.">El más grande de Floripa. Tiendas ancla, restaurantes, cine. El clásico para un día de lluvia.</p>
+        </div>
+
+        <div class="rainy-card reveal stagger" style="--i:4">
+          <div class="rainy-num">05</div>
+          <h3 data-es="Floripa Shopping" data-pt="Floripa Shopping">Floripa Shopping</h3>
+          <p data-es="Muy lindo, bien organizado. Buenas tiendas y gastronomía. Mi segundo favorito para un día de lluvia." data-pt="Muito bonito, bem organizado. Boas lojas e gastronomia. O meu segundo favorito para um dia de chuva.">Muy lindo, bien organizado. Buenas tiendas y gastronomía. Mi segundo favorito.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Donación -->
+  <section class="section-pad bg-light" id="donacion">
+    <div class="container container--narrow">
+      <div class="donation-wrap reveal">
+        <h2 class="section-title" data-es="¿Te fue útil esta guía?" data-pt="Esta guia foi útil para você?">¿Te fue útil esta guía?</h2>
+        <div class="section-line"></div>
+        <p data-es="La hice con tiempo y cariño, gratis para todos. Si querés acompañar mis viajes o invitarme un café, podés hacerlo acá." data-pt="Fiz com tempo e carinho, de graça para todos. Se quiser acompanhar minhas viagens ou me pagar um café, pode fazer aqui.">La hice con tiempo y cariño, gratis para todos. Si querés acompañar mis viajes o invitarme un café, podés hacerlo acá.</p>
+        <p class="donation-optional" data-es="Es totalmente opcional. Gracias por apoyar." data-pt="É totalmente opcional. Obrigado pelo apoio.">Es totalmente opcional. Gracias por apoyar.</p>
+        <div class="donation-methods">
+          <div class="donation-method">
+            <span class="donation-label" data-es="Pix Brasil — Chave CPF" data-pt="Pix Brasil — Chave CPF">Pix Brasil — Chave CPF</span>
+            <code class="donation-value">12772568105</code>
+            <button class="copy-btn ripple-host" data-copy="12772568105" data-copied-es="Copiado" data-copied-pt="Copiado" data-es="Copiar" data-pt="Copiar">Copiar</button>
+          </div>
+          <div class="donation-method">
+            <span class="donation-label" data-es="Argentina — Alias" data-pt="Argentina — Alias">Argentina — Alias</span>
+            <code class="donation-value">maurillobre.astro</code>
+            <button class="copy-btn ripple-host" data-copy="maurillobre.astro" data-copied-es="Copiado" data-copied-pt="Copiado" data-es="Copiar" data-pt="Copiar">Copiar</button>
+          </div>
+        </div>
+        <p class="donation-cta" data-es="Si este contenido te sumó valor, seguí el viaje desde Instagram." data-pt="Se este conteúdo te agregou valor, continue a viagem pelo Instagram.">Si este contenido te sumó valor, seguí el viaje desde Instagram.</p>
+        <a href="https://instagram.com/viajesconmauri" target="_blank" rel="noopener" class="follow-btn ripple-host" data-es="@viajesconmauri" data-pt="@viajesconmauri">@viajesconmauri</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <a href="https://instagram.com/viajesconmauri" target="_blank" rel="noopener" class="footer-handle">@viajesconmauri</a>
+          <span class="footer-dot" aria-hidden="true"></span>
+          <span class="footer-place" data-es="Florianópolis, Brasil" data-pt="Florianópolis, Brasil">Florianópolis, Brasil</span>
+        </div>
+        <div class="footer-right">
+          <span>Diseño y desarrollo</span>
+          <a href="https://orbitadigital.tech" class="footer-orbita" target="_blank">Órbita Digital</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script-new.js"></script>
+</body>
+</html>
