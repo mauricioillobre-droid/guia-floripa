@@ -574,7 +574,7 @@ button {
 .sunrise-bento-row {
   display: grid;
   grid-template-columns: 62fr 38fr;
-  min-height: 460px;
+  height: 380px;
 }
 .sunrise-bento-row--reverse {
   grid-template-columns: 38fr 62fr;
@@ -582,6 +582,7 @@ button {
 .sunrise-bento-img {
   overflow: hidden;
   position: relative;
+  height: 100%;
 }
 .sunrise-bento-img img {
   width: 100%;
@@ -1233,7 +1234,7 @@ button {
   .sunrise-bento-row,
   .sunrise-bento-row--reverse {
     grid-template-columns: 1fr;
-    min-height: auto;
+    height: auto;
   }
   .sunrise-bento-row--reverse .sunrise-bento-caption {
     order: 0;
